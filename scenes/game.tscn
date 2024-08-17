@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dlkgw11v3cqbx"]
 
 [ext_resource type="Texture2D" uid="uid://b2ii7kdabcdf8" path="res://resources/ldtk-levels/test1/simplified/Level_0/_composite.png" id="1_7q3f4"]
-[ext_resource type="PackedScene" uid="uid://bdctbdiosy05s" path="res://scenes/player.tscn" id="2_i3vcp"]
+[ext_resource type="PackedScene" uid="uid://b8yj34ybq3wwf" path="res://scenes/player.tscn" id="2_i3vcp"]
 [ext_resource type="Script" path="res://scripts/Input/PlayerInput.cs" id="2_thv1w"]
 
 [node name="Game" type="Node2D"]

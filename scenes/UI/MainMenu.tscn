@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkbmidlvwahw4"]
+[gd_scene load_steps=5 format=3 uid="uid://dkbmidlvwahw4"]
 
 [ext_resource type="Texture2D" uid="uid://67q30vo7hn6j" path="res://icon.svg" id="1_w28w4"]
 [ext_resource type="Theme" uid="uid://cu0tkhpwcwcpw" path="res://resources/themes/UIButton.tres" id="2_1jo42"]
 [ext_resource type="Script" path="res://scripts/UI/StartButton.cs" id="3_oa4w3"]
+[ext_resource type="Script" path="res://scripts/UI/QuitButton.cs" id="4_40dkx"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -31,9 +32,23 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/margin_top = 20
 
-[node name="Button" type="Button" parent="VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 50
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 theme = ExtResource("2_1jo42")
 text = "Start"
 script = ExtResource("3_oa4w3")
 TargetScene = "res://scenes/game.tscn"
+
+[node name="Button2" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_1jo42")
+text = "Quit"
+script = ExtResource("4_40dkx")
