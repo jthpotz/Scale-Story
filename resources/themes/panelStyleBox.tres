@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bf2ri8o1u0cfr"]
+
+[ext_resource type="Texture2D" uid="uid://b2gibqvs3eyg1" path="res://resources/kenny-ui/PNG/Default/panel_grey.png" id="1_ld2no"]
+
+[resource]
+texture = ExtResource("1_ld2no")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0

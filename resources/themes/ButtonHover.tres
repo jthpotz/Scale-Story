@@ -1,9 +1,9 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cfukqvijrfqqq"]
 
-[ext_resource type="Texture2D" uid="uid://6vwd0yx2t0o5" path="res://resources/kenny-ui/PNG/Default/panel_brown_damaged.png" id="1_amh23"]
+[ext_resource type="Texture2D" uid="uid://hrgf1ij41dvf" path="res://resources/kenny-ui/PNG/Default/panel_brown.png" id="1_dy6rs"]
 
 [resource]
-texture = ExtResource("1_amh23")
+texture = ExtResource("1_dy6rs")
 texture_margin_left = 8.0
 texture_margin_top = 8.0
 texture_margin_right = 8.0
