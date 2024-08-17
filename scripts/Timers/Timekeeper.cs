@@ -156,7 +156,7 @@ namespace Timers {
         /// </summary>
         public static void Initialize () {
             if (instance != null) return;
-            PackedScene timekeeperScene = GD.Load<PackedScene>("res://scenes/TimerTesting/Timekeeper.tscn");
+            PackedScene timekeeperScene = GD.Load<PackedScene>("res://scenes/Timers/Timekeeper.tscn");
 
             instance = timekeeperScene.Instantiate<Timekeeper>();
             ((SceneTree)Engine.GetMainLoop()).Root.CallDeferred(MethodName.AddChild, instance);

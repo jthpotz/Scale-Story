@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfpmu60nthuf2"]
+
+[ext_resource type="Script" path="res://scripts/Timers/Timekeeper.cs" id="1_vwg6i"]
+
+[node name="Timekeeper" type="Node"]
+script = ExtResource("1_vwg6i")
