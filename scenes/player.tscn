@@ -82,7 +82,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_x278i")
 }],
-"loop": true,
+"loop": false,
 "name": &"roar",
 "speed": 10.0
 }, {
@@ -119,6 +119,11 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_olsxo"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 3.0,
 "texture": null
@@ -135,8 +140,8 @@ animations = [{
 "duration": 2.0,
 "texture": null
 }],
-"loop": true,
-"name": &"default",
+"loop": false,
+"name": &"flame",
 "speed": 10.0
 }]
 
@@ -146,14 +151,16 @@ animations = [{
 position = Vector2(6, -1)
 shape = SubResource("RectangleShape2D_ekddl")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("playerMovement")]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("playerMovement", "fireSprite")]
 position = Vector2(6, -1)
 scale = Vector2(1.5, 1.375)
 sprite_frames = SubResource("SpriteFrames_1bmxf")
 animation = &"roar"
-frame_progress = 0.342685
+frame = 4
+frame_progress = 1.0
 script = ExtResource("7_eccii")
 playerMovement = NodePath("../PlayerMovement")
+fireSprite = NodePath("../FireSprite2D")
 
 [node name="PlayerMovement" type="Node" parent="." node_paths=PackedStringArray("playerVisual", "animatedSprite")]
 script = ExtResource("2_3urtb")
@@ -163,8 +170,7 @@ animatedSprite = NodePath("../Sprite2D")
 [node name="PlayerVisual" type="Node" parent="."]
 script = ExtResource("3_ibde4")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="FireSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(24, -4)
 sprite_frames = SubResource("SpriteFrames_olsxo")
-frame = 2
-frame_progress = 0.326774
+animation = &"flame"
