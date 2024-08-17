@@ -9,9 +9,12 @@
 
 [node name="Ground" type="Sprite2D" parent="."]
 position = Vector2(575, 319)
+scale = Vector2(2, 2)
 texture = ExtResource("1_7q3f4")
 
 [node name="Player" parent="." instance=ExtResource("2_i3vcp")]
+position = Vector2(509, 289)
+scale = Vector2(2, 2)
 
 [node name="Sprite2D" parent="Player" index="1"]
 frame_progress = 0.353526
@@ -26,5 +29,6 @@ playerMovement = NodePath("../Player/PlayerMovement")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_diwgc")]
+visible = false
 
 [editable path="Player"]
