@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://dlkgw11v3cqbx"]
+[gd_scene load_steps=2 format=3 uid="uid://dlkgw11v3cqbx"]
+
+[ext_resource type="Texture2D" uid="uid://b2ii7kdabcdf8" path="res://resources/ldtk-levels/test1/simplified/Level_0/_composite.png" id="1_7q3f4"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Ground" type="Sprite2D" parent="."]
+position = Vector2(575, 319)
+texture = ExtResource("1_7q3f4")
