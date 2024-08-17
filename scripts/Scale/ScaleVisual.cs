@@ -48,6 +48,8 @@ namespace Scale {
 
         private Timer bounceTimer;
 
+        private Timer shrinkTimer;
+
         [Export]
         private float bounceFactor = 10f;
 
@@ -57,9 +59,26 @@ namespace Scale {
         [Export]
         private Area2D area;
 
+        [Export]
+        private float riseAmount = 10;
+
+        [Export]
+        private float shrinkDuration = 2;
+
+        [Export]
+        private float shrinkTarget = 0.25f;
+
+        private Vector2 shrinkVector;
+
         private float y = 0;
 
         private float initialY = 0;
+
+        private Vector2 initialScale;
+
+        private bool bouncing = true;
+
+        private bool shrinking = false;
 
         public override void _Ready () {
             Initialize(null);
@@ -69,17 +88,30 @@ namespace Scale {
             base.Initialize(state);
 
             initialY = parent.Position.Y;
+            initialScale = parent.Scale;
+            shrinkVector = new Vector2(shrinkTarget, shrinkTarget);
 
-            area.AreaEntered += AreaHit;
+            area.BodyEntered += AreaHit;
 
             bounceTimer = Timekeeper.AddTimer(bounceDuration, TimerFunc, true, false);
+            shrinkTimer = Timekeeper.AddTimer(shrinkDuration, DoneShrink, false, false);
             Timekeeper.StartTimer(bounceTimer);
         }
 
         public override void _Process (double delta) {
+            if (bouncing) Bounce();
+            if (shrinking) Shrink();
+        }
+
+        private void Bounce () {
             y = Mathf.Sin(Timekeeper.GetPercentComplete(bounceTimer) * 2 * Mathf.Pi);
             y = Mathf.Pow(Mathf.Abs(y), 0.8f) * Mathf.Sign(y);
             parent.Position = new Vector2(parent.Position.X, initialY + bounceFactor * y);
+        }
+
+        private void Shrink () {
+            parent.Scale = initialScale - ((initialScale - shrinkVector) * Timekeeper.GetPercentComplete(shrinkTimer));
+            parent.Position = new Vector2(parent.Position.X, initialY + y + (y - riseAmount) * Timekeeper.GetPercentComplete(shrinkTimer));
         }
 
         protected override void SetName () {
@@ -93,14 +125,19 @@ namespace Scale {
         public void TimerFunc () {
         }
 
+        public void DoneShrink () {
+            parent.QueueFree();
+        }
+
         private static float Easing (float x) {
             return -(Mathf.Cos(Mathf.Pi * x) - 1) / 2;
         }
 
-        public void AreaHit (Area2D other) {
-            GD.Print(other.GetParent().Name);
-            if (other.GetParent().Name != "Player") return;
-            GD.Print("Hit");
+        public void AreaHit (Node2D other) {
+            if (other.Name != "Player") return;
+            bouncing = false;
+            shrinking = true;
+            Timekeeper.StartTimer(shrinkTimer);
         }
 
     }

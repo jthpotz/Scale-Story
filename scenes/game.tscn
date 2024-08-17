@@ -18,6 +18,7 @@ position = Vector2(509, 289)
 scale = Vector2(2, 2)
 
 [node name="Sprite2D" parent="Player" index="1"]
+animation = &"walk"
 frame_progress = 0.353526
 
 [node name="PlayerMovement" parent="Player" index="2"]
