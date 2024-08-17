@@ -1,0 +1,16 @@
+using Framework;
+using Godot;
+
+namespace ###PLACEHOLDER### {
+
+    public partial class ###PLACEHOLDER###Factory : Factory<###PLACEHOLDER###State, ###PLACEHOLDER###Data, ###PLACEHOLDER###DataLoader, Node2D> {
+
+        protected override ###PLACEHOLDER###State ExtendedCreate (###PLACEHOLDER###DataLoader dataLoader, Node2D node) {
+            throw new System.NotImplementedException();
+        }
+
+        protected override bool ExtendedGuards (###PLACEHOLDER###DataLoader dataLoader) {
+            throw new System.NotImplementedException();
+        }
+    }
+}

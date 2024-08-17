@@ -1,0 +1,11 @@
+using Attributes;
+using Framework;
+
+namespace ###PLACEHOLDER### {
+
+    public partial class ###PLACEHOLDER###Data : Data {
+
+        public ###PLACEHOLDER###Data (AttributeData data, AttributeComputer computer) : base(data, computer) { }
+
+    }
+}

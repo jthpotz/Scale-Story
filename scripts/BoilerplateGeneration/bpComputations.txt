@@ -1,0 +1,13 @@
+using Attributes;
+
+namespace ###PLACEHOLDER### {
+
+    public class ###PLACEHOLDER###Computations {
+
+        public static readonly AttributeComputer ###PLACEHOLDER###Computer = new AttributeComputer();
+
+        public static void Initialize###PLACEHOLDER###Computer () {
+        }
+
+    }
+}

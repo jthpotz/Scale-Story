@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using Enumerations;
+
+namespace ###PLACEHOLDER1### {
+
+    public partial class ###PLACEHOLDER2### : Enumeration {
+
+        private static readonly List<###PLACEHOLDER2###> allValues = new();
+
+        public static List<###PLACEHOLDER2###> AllValues {
+            get {
+                return allValues;
+            }
+        }
+
+        // Construct Enums here like so: (increment number each time)
+        // public static readonly ###PLACEHOLDER2### Name = new(0, "Name");
+
+        // or like this if using partials: (increment number each time)
+        // public static readonly ###PLACEHOLDER2### Name = new Name(0);
+
+        protected ###PLACEHOLDER2### (int value, string name) : base(value, name) {
+            allValues.Add(this);
+        }
+
+    }
+}

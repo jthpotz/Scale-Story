@@ -1,0 +1,18 @@
+using Framework;
+
+namespace ###PLACEHOLDER### {
+
+    public partial class ###PLACEHOLDER###Visual : Visual2D {
+
+        public override ###PLACEHOLDER###State State {
+            get {
+                return (###PLACEHOLDER###State)state;
+            }
+        }
+
+        protected override void SetName () {
+            parent.Name = "###PLACEHOLDER###State " + state.ID;
+        }
+
+    }
+}

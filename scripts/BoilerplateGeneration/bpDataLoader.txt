@@ -1,0 +1,17 @@
+using Attributes;
+using Framework;
+
+namespace ###PLACEHOLDER### {
+
+    public class ###PLACEHOLDER###DataLoader : DataLoader<###PLACEHOLDER###Data> {
+
+        public override bool Guards () {
+            throw new System.NotImplementedException();
+        }
+
+        public override ###PLACEHOLDER###Data LoadData () {
+            throw new System.NotImplementedException();
+        }
+
+    }
+}

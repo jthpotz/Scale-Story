@@ -1,0 +1,11 @@
+namespace ###PLACEHOLDER1### {
+
+    public abstract partial class ###PLACEHOLDER2### {
+
+        private class ###PLACEHOLDER3###Enum : ###PLACEHOLDER2### {
+
+            public ###PLACEHOLDER3###Enum (int value) : base(value, "###PLACEHOLDER3###") { }
+
+        }
+    }
+}

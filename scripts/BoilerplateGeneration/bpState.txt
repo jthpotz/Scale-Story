@@ -1,0 +1,23 @@
+using Framework;
+
+namespace ###PLACEHOLDER### {
+
+    public partial class ###PLACEHOLDER###State : State {
+
+        public override ###PLACEHOLDER###Data Data {
+            get {
+                return (###PLACEHOLDER###Data)data;
+            }
+        }
+
+        public override ###PLACEHOLDER###Visual Visual {
+            get {
+                return (###PLACEHOLDER###Visual)visual;
+            }
+        }
+
+        public ###PLACEHOLDER###State (###PLACEHOLDER###Data data, ###PLACEHOLDER###Visual visual, int id) : base(data, visual, id) {
+        }
+
+    }
+}
