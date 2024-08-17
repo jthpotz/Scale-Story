@@ -18,9 +18,9 @@ position = Vector2(6, -1)
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("1_ejdt0")
 
-[node name="PlayerMovement" type="Node" parent="." node_paths=PackedStringArray("characterBody2D")]
+[node name="PlayerMovement" type="Node" parent="." node_paths=PackedStringArray("playerVisual")]
 script = ExtResource("2_3urtb")
-characterBody2D = NodePath("..")
+playerVisual = NodePath("../PlayerVisual")
 
 [node name="PlayerVisual" type="Node" parent="."]
 script = ExtResource("3_ibde4")

@@ -5,8 +5,6 @@ using Player;
 public partial class PlayerMovement : Node {
 
     [Export]
-    private CharacterBody2D characterBody2D;
-
     private PlayerVisual playerVisual;
 
     private Vector2 direction = new Vector2();
@@ -19,8 +17,8 @@ public partial class PlayerMovement : Node {
     }
 
     public override void _PhysicsProcess (double delta) {
-        characterBody2D.Velocity = direction * speed;
-        characterBody2D.MoveAndSlide();
+        ((CharacterBody2D)playerVisual.Parent).Velocity = direction * speed;
+        ((CharacterBody2D)playerVisual.Parent).MoveAndSlide();
     }
 
 }
