@@ -1,11 +1,75 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8yj34ybq3wwf"]
+[gd_scene load_steps=11 format=3 uid="uid://bdctbdiosy05s"]
 
-[ext_resource type="Texture2D" uid="uid://67q30vo7hn6j" path="res://icon.svg" id="1_ejdt0"]
+[ext_resource type="Texture2D" uid="uid://dtdr18cr4sck1" path="res://resources/dragon/dragon-left-standing.png" id="1_no2bc"]
+[ext_resource type="Texture2D" uid="uid://jxkyyf6dv5lf" path="res://resources/dragon/dragon-right-standing.png" id="2_0wfxg"]
 [ext_resource type="Script" path="res://scripts/Player/PlayerMovement.cs" id="2_3urtb"]
+[ext_resource type="Texture2D" uid="uid://ctj51lbulrqj2" path="res://resources/dragon/dragon-right-blink-half.png" id="2_sg63l"]
 [ext_resource type="Script" path="res://scripts/Player/PlayerVisual.cs" id="3_ibde4"]
+[ext_resource type="Texture2D" uid="uid://cy8bcgimc8b6o" path="res://resources/dragon/dragon-right-blink-full.png" id="3_l4vtl"]
+[ext_resource type="Texture2D" uid="uid://bt26bg4nx4k41" path="res://resources/dragon/dragon-right-wing-flap.png" id="4_7g1pt"]
+[ext_resource type="Texture2D" uid="uid://cfch3a40savmt" path="res://resources/dragon/dragon-right-look-left.png" id="5_k12cv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ekddl"]
 size = Vector2(24, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1bmxf"]
+animations = [{
+"frames": [{
+"duration": 50.0,
+"texture": ExtResource("2_0wfxg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_sg63l")
+}, {
+"duration": 3.0,
+"texture": ExtResource("3_l4vtl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_sg63l")
+}],
+"loop": true,
+"name": &"blink",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 20.0,
+"texture": ExtResource("2_0wfxg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7g1pt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0wfxg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7g1pt")
+}],
+"loop": true,
+"name": &"flap-twice",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 20.0,
+"texture": ExtResource("2_0wfxg")
+}, {
+"duration": 5.0,
+"texture": ExtResource("5_k12cv")
+}],
+"loop": true,
+"name": &"look-around",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("1_no2bc")
+}, {
+"duration": 3.0,
+"texture": ExtResource("2_0wfxg")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D"]
 
@@ -13,14 +77,17 @@ size = Vector2(24, 22)
 position = Vector2(6, -1)
 shape = SubResource("RectangleShape2D_ekddl")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(6, -1)
-scale = Vector2(0.18, 0.18)
-texture = ExtResource("1_ejdt0")
+scale = Vector2(1.5, 1.375)
+sprite_frames = SubResource("SpriteFrames_1bmxf")
+animation = &"flap-twice"
+frame_progress = 0.952389
 
-[node name="PlayerMovement" type="Node" parent="." node_paths=PackedStringArray("playerVisual")]
+[node name="PlayerMovement" type="Node" parent="." node_paths=PackedStringArray("playerVisual", "animatedSprite")]
 script = ExtResource("2_3urtb")
 playerVisual = NodePath("../PlayerVisual")
+animatedSprite = NodePath("../Sprite2D")
 
 [node name="PlayerVisual" type="Node" parent="."]
 script = ExtResource("3_ibde4")
