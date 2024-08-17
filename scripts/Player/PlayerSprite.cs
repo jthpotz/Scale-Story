@@ -9,6 +9,9 @@ public partial class PlayerSprite : AnimatedSprite2D
     [Export]
 	private PlayerMovement playerMovement;
 
+    [Export]
+	private AnimatedSprite2D fireSprite;
+
 	public override void _Ready()
 	{
 		Play("walk");
