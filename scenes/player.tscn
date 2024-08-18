@@ -167,6 +167,7 @@ fireSprite = NodePath("../FireSprite2D")
 script = ExtResource("2_3urtb")
 playerVisual = NodePath("../PlayerVisual")
 animatedSprite = NodePath("../AnimatedSprite2D")
+speed = 100.0
 
 [node name="PlayerVisual" type="Node" parent="."]
 script = ExtResource("3_ibde4")
@@ -177,3 +178,5 @@ sprite_frames = SubResource("SpriteFrames_olsxo")
 animation = &"flame"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
