@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb0gvpegswl67"
-path="res://.godot/imported/IntGrid.png-dcf7138224c23b5f82b4ce47993277f6.ctex"
+uid="uid://cqcxwgxg4x7u2"
+path="res://.godot/imported/Edited.png-854f0c93a93a471c728c03d24106a9e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/ldtk-levels/test1/simplified/Level_0/IntGrid.png"
-dest_files=["res://.godot/imported/IntGrid.png-dcf7138224c23b5f82b4ce47993277f6.ctex"]
+source_file="res://resources/tiny-dungeon/Tilemap/Edited.png"
+dest_files=["res://.godot/imported/Edited.png-854f0c93a93a471c728c03d24106a9e6.ctex"]
 
 [params]
 

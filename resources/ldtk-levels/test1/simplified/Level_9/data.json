@@ -1,0 +1,24 @@
+{
+	"identifier": "Level_9",
+	"uniqueIdentifer": "c9322970-4ce0-11ef-9c1c-dde081ffff5f",
+	"x": -64,
+	"y": -768,
+	"width": 256,
+	"height": 256,
+	"bgColor": "#696A79",
+	"neighbourLevels": [
+		{
+			"levelIid": "140ded30-4ce0-11ef-9c1c-1f8b4ff87c26",
+			"dir": "s"
+		}
+	],
+	"customFields" : {},
+	"layers": [
+		"IntGrid.png",
+		"IntGrid2.png",
+		"Floor.png",
+		"Sliding.png",
+		"Walls.png"
+	],
+	"entities" : {}
+}

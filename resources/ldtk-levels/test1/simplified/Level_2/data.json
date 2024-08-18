@@ -1,12 +1,17 @@
 {
-	"identifier": "Level_0",
-	"uniqueIdentifer": "e9b7c720-4ce0-11ef-9c1c-e73681773489",
-	"x": -1136,
+	"identifier": "Level_2",
+	"uniqueIdentifer": "0c7d47f0-4ce0-11ef-9c1c-f562caf0c65b",
+	"x": 0,
 	"y": 512,
 	"width": 256,
 	"height": 256,
 	"bgColor": "#696A79",
-	"neighbourLevels": [],
+	"neighbourLevels": [
+		{
+			"levelIid": "d373b350-4ce0-11ef-9c1c-411a2e30ece2",
+			"dir": "n"
+		}
+	],
 	"customFields" : {},
 	"layers": [
 		"IntGrid.png",

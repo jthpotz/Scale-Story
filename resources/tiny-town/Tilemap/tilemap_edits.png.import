@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvj6vx3a4im8m"
-path="res://.godot/imported/_bg.png-7bc79786cb03148e920967748d76f58c.ctex"
+uid="uid://cf0undfxx5ncq"
+path="res://.godot/imported/tilemap_edits.png-57bc2e20355c9818ac1d28276db0d13e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/ldtk-levels/test1/simplified/Level_0/_bg.png"
-dest_files=["res://.godot/imported/_bg.png-7bc79786cb03148e920967748d76f58c.ctex"]
+source_file="res://resources/tiny-town/Tilemap/tilemap_edits.png"
+dest_files=["res://.godot/imported/tilemap_edits.png-57bc2e20355c9818ac1d28276db0d13e.ctex"]
 
 [params]
 
