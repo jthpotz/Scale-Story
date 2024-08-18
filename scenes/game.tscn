@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dlkgw11v3cqbx"]
 
-[ext_resource type="Texture2D" uid="uid://b2ii7kdabcdf8" path="res://resources/ldtk-levels/test1/simplified/Level_0/_composite.png" id="1_7q3f4"]
+[ext_resource type="Texture2D" uid="uid://h0l6w4pme5er" path="res://resources/ldtk-levels/test1/simplified/Level_0/_composite.png" id="1_7q3f4"]
 [ext_resource type="PackedScene" uid="uid://b8yj34ybq3wwf" path="res://scenes/player.tscn" id="2_i3vcp"]
 [ext_resource type="Script" path="res://scripts/Input/PlayerInput.cs" id="2_thv1w"]
 [ext_resource type="PackedScene" uid="uid://dpmqig15i46v6" path="res://scenes/UI/PauseMenu.tscn" id="4_diwgc"]
@@ -11,6 +11,11 @@
 [node name="Game" type="Node2D"]
 
 [node name="Ground" type="Sprite2D" parent="."]
+position = Vector2(575, 319)
+scale = Vector2(2, 2)
+texture = ExtResource("1_7q3f4")
+
+[node name="Ground2" type="Sprite2D" parent="."]
 position = Vector2(575, 319)
 scale = Vector2(2, 2)
 texture = ExtResource("1_7q3f4")
