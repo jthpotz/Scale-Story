@@ -151,7 +151,7 @@ animations = [{
 position = Vector2(6, -1)
 shape = SubResource("RectangleShape2D_ekddl")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("playerMovement", "fireSprite")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("playerMovement", "playerVisual", "fireSprite")]
 position = Vector2(6, -1)
 scale = Vector2(1.5, 1.375)
 sprite_frames = SubResource("SpriteFrames_1bmxf")
@@ -160,12 +160,13 @@ frame = 4
 frame_progress = 1.0
 script = ExtResource("7_eccii")
 playerMovement = NodePath("../PlayerMovement")
+playerVisual = NodePath("../PlayerVisual")
 fireSprite = NodePath("../FireSprite2D")
 
 [node name="PlayerMovement" type="Node" parent="." node_paths=PackedStringArray("playerVisual", "animatedSprite")]
 script = ExtResource("2_3urtb")
 playerVisual = NodePath("../PlayerVisual")
-animatedSprite = NodePath("../Sprite2D")
+animatedSprite = NodePath("../AnimatedSprite2D")
 
 [node name="PlayerVisual" type="Node" parent="."]
 script = ExtResource("3_ibde4")
@@ -174,3 +175,5 @@ script = ExtResource("3_ibde4")
 position = Vector2(24, -4)
 sprite_frames = SubResource("SpriteFrames_olsxo")
 animation = &"flame"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

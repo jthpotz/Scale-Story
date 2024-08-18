@@ -35,6 +35,15 @@ namespace Framework {
         }
 
         /// <summary>
+        /// Get presence of an attribute.
+        /// </summary>
+        /// <param name="name">Name of the attribute to look up.</param>
+        /// <returns>True if the attribute exists.</returns>
+        public bool HasAttribute (string name) {
+            return combinedData.HasAttribute(name);
+        }
+
+        /// <summary>
         /// Get/compute an attribute.
         /// </summary>
         /// <param name="name">Name of the attribute to look up.</param>
