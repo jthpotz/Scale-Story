@@ -27,4 +27,15 @@ public partial class PlayerSprite : AnimatedSprite2D
             Play(list.GetRandomItem());
         }
     }
+
+    public override void _Input (InputEvent @event) {
+        if (@event.IsActionPressed("Roar")) {
+            Roar();
+        } 
+    }
+
+    private void Roar() {
+        Play("roar");
+        fireSprite.Play("flame");
+    }
 }
