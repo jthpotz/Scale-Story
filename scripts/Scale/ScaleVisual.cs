@@ -1,6 +1,7 @@
 using System;
 using Framework;
 using Godot;
+using Player;
 using Timers;
 using ScaleColor = Scale.ScaleVisual.ScaleColor;
 using Timer = Timers.Timer;
@@ -127,6 +128,8 @@ namespace Scale {
 
         public void DoneShrink () {
             parent.QueueFree();
+            string path = "/root/Game/ScaleCanvasLayer/ScaleInventory/CenterContainer/PanelContainer/HBoxContainer/" + color + "ScaleBtn";
+            GetNode<CanvasItem>(path).Show();
         }
 
         private static float Easing (float x) {
@@ -134,10 +137,11 @@ namespace Scale {
         }
 
         public void AreaHit (Node2D other) {
-            if (other.Name != "Player") return;
+            if (other.Name != "PlayerState 0") return;
             bouncing = false;
             shrinking = true;
             Timekeeper.StartTimer(shrinkTimer);
+            other.GetNode<PlayerVisual>("PlayerVisual").AddScale(color.ToString());
         }
 
     }

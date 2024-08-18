@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlkgw11v3cqbx"]
+[gd_scene load_steps=8 format=3 uid="uid://dlkgw11v3cqbx"]
 
 [ext_resource type="Texture2D" uid="uid://b2ii7kdabcdf8" path="res://resources/ldtk-levels/test1/simplified/Level_0/_composite.png" id="1_7q3f4"]
 [ext_resource type="PackedScene" uid="uid://b8yj34ybq3wwf" path="res://scenes/player.tscn" id="2_i3vcp"]
 [ext_resource type="Script" path="res://scripts/Input/PlayerInput.cs" id="2_thv1w"]
 [ext_resource type="PackedScene" uid="uid://dpmqig15i46v6" path="res://scenes/UI/PauseMenu.tscn" id="4_diwgc"]
-[ext_resource type="PackedScene" uid="uid://d1spih5q3quec" path="res://scenes/Scale.tscn" id="5_cijt0"]
+[ext_resource type="PackedScene" path="res://scenes/Scale.tscn" id="5_cijt0"]
+[ext_resource type="PackedScene" uid="uid://bimil06xtv6te" path="res://scenes/UI/ScaleInventory.tscn" id="6_pwth5"]
+[ext_resource type="PackedScene" uid="uid://c2o123xr2qq4w" path="res://scenes/UI/ScaleDefinition.tscn" id="7_od2qg"]
 
 [node name="Game" type="Node2D"]
 
@@ -16,10 +18,6 @@ texture = ExtResource("1_7q3f4")
 [node name="Player" parent="." instance=ExtResource("2_i3vcp")]
 position = Vector2(509, 289)
 scale = Vector2(2, 2)
-
-[node name="Sprite2D" parent="Player" index="1"]
-animation = &"walk"
-frame_progress = 0.353526
 
 [node name="PlayerMovement" parent="Player" index="2"]
 speed = 100.0
@@ -33,11 +31,74 @@ playerMovement = NodePath("../Player/PlayerMovement")
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_diwgc")]
 visible = false
 
+[node name="ScaleCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ScaleInventory" parent="ScaleCanvasLayer" instance=ExtResource("6_pwth5")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_top = -76.0
+offset_bottom = -76.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+
+[node name="ScaleDefinition" parent="ScaleCanvasLayer" instance=ExtResource("7_od2qg")]
+visible = false
+
 [node name="Scale" parent="." instance=ExtResource("5_cijt0")]
 position = Vector2(677, 109)
 
 [node name="ScaleVisual" parent="Scale" index="2"]
+color = 0
+riseAmount = 10.0
+shrinkDuration = 2.0
+
+[node name="Scale2" parent="." instance=ExtResource("5_cijt0")]
+position = Vector2(758, 180)
+
+[node name="ScaleVisual" parent="Scale2" index="2"]
+color = 2
+
+[node name="Scale3" parent="." instance=ExtResource("5_cijt0")]
+position = Vector2(511, 151)
+
+[node name="Scale4" parent="." instance=ExtResource("5_cijt0")]
+position = Vector2(681, 258)
+
+[node name="ScaleVisual" parent="Scale4" index="2"]
+color = 1
+
+[node name="Scale5" parent="." instance=ExtResource("5_cijt0")]
+position = Vector2(691, 398)
+
+[node name="ScaleVisual" parent="Scale5" index="2"]
+color = 4
+
+[node name="Scale6" parent="." instance=ExtResource("5_cijt0")]
+position = Vector2(605, 516)
+
+[node name="ScaleVisual" parent="Scale6" index="2"]
+color = 5
+
+[node name="Scale7" parent="." instance=ExtResource("5_cijt0")]
+position = Vector2(464, 499)
+
+[node name="ScaleVisual" parent="Scale7" index="2"]
 color = 6
+
+[node name="Scale8" parent="." instance=ExtResource("5_cijt0")]
+position = Vector2(388, 364)
+
+[node name="ScaleVisual" parent="Scale8" index="2"]
+color = 7
 
 [editable path="Player"]
 [editable path="Scale"]
+[editable path="Scale2"]
+[editable path="Scale3"]
+[editable path="Scale4"]
+[editable path="Scale5"]
+[editable path="Scale6"]
+[editable path="Scale7"]
+[editable path="Scale8"]

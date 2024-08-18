@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://bimil06xtv6te"]
+
+[ext_resource type="Script" path="res://scripts/UI/ScaleInventory.cs" id="1_g26sf"]
+[ext_resource type="Texture2D" uid="uid://caofm1eppge6b" path="res://resources/scales/scale-red.png" id="1_p8yyj"]
+[ext_resource type="Texture2D" uid="uid://doubgwbvxr50r" path="res://resources/scales/scale-pink.png" id="2_uqmqh"]
+[ext_resource type="Texture2D" uid="uid://smt2jm3ysw6b" path="res://resources/scales/scale-orange.png" id="3_b4iig"]
+[ext_resource type="Texture2D" uid="uid://ckblxrq7kxcna" path="res://resources/scales/scale-yellow.png" id="4_4h678"]
+[ext_resource type="Texture2D" uid="uid://bsk341ydpdric" path="res://resources/scales/scale-green.png" id="5_dxvb8"]
+[ext_resource type="Texture2D" uid="uid://b3a8xnsp5opdb" path="res://resources/scales/scale-blue.png" id="6_78k7c"]
+[ext_resource type="Texture2D" uid="uid://cy5iyeagpt03k" path="res://resources/scales/scale-purple.png" id="7_2jyp2"]
+[ext_resource type="Texture2D" uid="uid://dmlj0q3owoys6" path="res://resources/scales/scale-silver.png" id="8_3pl4h"]
+
+[node name="ScaleInventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("1_g26sf")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -78.0
+offset_top = -16.0
+offset_right = 78.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="RedScaleBtn" type="TextureButton" parent="CenterContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("1_p8yyj")
+
+[node name="PinkScaleBtn" type="TextureButton" parent="CenterContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("2_uqmqh")
+
+[node name="OrangeScaleBtn" type="TextureButton" parent="CenterContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("3_b4iig")
+
+[node name="YellowScaleBtn" type="TextureButton" parent="CenterContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("4_4h678")
+
+[node name="GreenScaleBtn" type="TextureButton" parent="CenterContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("5_dxvb8")
+
+[node name="BlueScaleBtn" type="TextureButton" parent="CenterContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("6_78k7c")
+
+[node name="PurpleScaleBtn" type="TextureButton" parent="CenterContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("7_2jyp2")
+
+[node name="SilverScaleBtn" type="TextureButton" parent="CenterContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("8_3pl4h")
