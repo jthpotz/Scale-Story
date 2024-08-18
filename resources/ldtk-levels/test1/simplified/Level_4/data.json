@@ -30,8 +30,6 @@
 	],
 	"customFields" : {},
 	"layers": [
-		"IntGrid.png",
-		"IntGrid2.png",
 		"Floor.png",
 		"Sliding.png",
 		"Walls.png"
