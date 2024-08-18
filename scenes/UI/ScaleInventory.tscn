@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bimil06xtv6te"]
+[gd_scene load_steps=11 format=3 uid="uid://b45daabjkmxxg"]
 
 [ext_resource type="Script" path="res://scripts/UI/ScaleInventory.cs" id="1_g26sf"]
 [ext_resource type="Texture2D" uid="uid://caofm1eppge6b" path="res://resources/scales/scale-red.png" id="1_p8yyj"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://b3a8xnsp5opdb" path="res://resources/scales/scale-blue.png" id="6_78k7c"]
 [ext_resource type="Texture2D" uid="uid://cy5iyeagpt03k" path="res://resources/scales/scale-purple.png" id="7_2jyp2"]
 [ext_resource type="Texture2D" uid="uid://dmlj0q3owoys6" path="res://resources/scales/scale-silver.png" id="8_3pl4h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8axxb"]
 
 [node name="ScaleInventory" type="Control"]
 layout_mode = 3
@@ -29,13 +31,15 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -78.0
-offset_top = -16.0
+offset_top = 22.0
 offset_right = 78.0
+offset_bottom = 38.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8axxb")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer"]
 layout_mode = 2

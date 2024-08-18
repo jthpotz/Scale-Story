@@ -1,21 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4a4xbuev7mrc"]
+[gd_scene load_steps=9 format=3 uid="uid://c4a4xbuev7mrc"]
 
 [ext_resource type="PackedScene" uid="uid://dl3ceimd1tgtu" path="res://scenes/Rooms/Room1.tscn" id="1_eegrt"]
 [ext_resource type="PackedScene" uid="uid://tju1fd2ldxx" path="res://scenes/Rooms/Room2.tscn" id="2_d5304"]
 [ext_resource type="PackedScene" uid="uid://b8yj34ybq3wwf" path="res://scenes/player.tscn" id="3_bkv3o"]
 [ext_resource type="Script" path="res://scripts/Rooms/RoomSwitcher.cs" id="4_6i42y"]
 [ext_resource type="Script" path="res://scripts/Input/PlayerInput.cs" id="4_p8oe5"]
+[ext_resource type="PackedScene" uid="uid://dpmqig15i46v6" path="res://scenes/UI/PauseMenu.tscn" id="6_ntv6n"]
+[ext_resource type="PackedScene" uid="uid://b45daabjkmxxg" path="res://scenes/UI/ScaleInventory.tscn" id="7_xv78h"]
+[ext_resource type="PackedScene" uid="uid://c2o123xr2qq4w" path="res://scenes/UI/ScaleDefinition.tscn" id="8_j1tbi"]
 
 [node name="GameWorld" type="Node2D"]
 
 [node name="Room1" parent="." instance=ExtResource("1_eegrt")]
-unique_name_in_owner = true
 
 [node name="Room2" parent="." instance=ExtResource("2_d5304")]
 visible = false
 
 [node name="Player" parent="." instance=ExtResource("3_bkv3o")]
-position = Vector2(-10, 115)
+position = Vector2(-10, 116)
 scale = Vector2(2, 2)
 
 [node name="PlayerInput" type="Node" parent="." node_paths=PackedStringArray("playerMovement")]
@@ -26,3 +28,23 @@ playerMovement = NodePath("../Player/PlayerMovement")
 script = ExtResource("4_6i42y")
 rooms = [NodePath("../Room1"), NodePath("../Room2")]
 player = NodePath("../Player")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_ntv6n")]
+visible = false
+
+[node name="ScaleCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ScaleInventory" parent="ScaleCanvasLayer" instance=ExtResource("7_xv78h")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_top = -76.0
+offset_bottom = -76.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+
+[node name="ScaleDefinition" parent="ScaleCanvasLayer" instance=ExtResource("8_j1tbi")]
+visible = false

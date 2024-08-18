@@ -128,7 +128,7 @@ namespace Scale {
 
         public void DoneShrink () {
             parent.QueueFree();
-            string path = "/root/Game/ScaleCanvasLayer/ScaleInventory/%" + color + "ScaleBtn";
+            string path = "/root/GameWorld/ScaleCanvasLayer/ScaleInventory/%" + color + "ScaleBtn";
             GetNode<CanvasItem>(path).Show();
         }
 

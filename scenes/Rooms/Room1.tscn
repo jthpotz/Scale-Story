@@ -1,12 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://dl3ceimd1tgtu"]
+[gd_scene load_steps=12 format=3 uid="uid://dl3ceimd1tgtu"]
 
 [ext_resource type="Script" path="res://scripts/Rooms/Room.cs" id="1_8yomr"]
-[ext_resource type="Texture2D" uid="uid://by2kd5ral4rhk" path="res://resources/ldtk-levels/test1/simplified/Level_2/Floor.png" id="1_uhpbe"]
-[ext_resource type="Texture2D" uid="uid://dmbtm32pjop6q" path="res://resources/ldtk-levels/test1/simplified/Level_2/Walls.png" id="2_0rk7r"]
+[ext_resource type="Texture2D" uid="uid://c6ekofh0kvvgw" path="res://resources/ldtk-levels/test1/simplified/Level_2/Floor.png" id="1_uhpbe"]
+[ext_resource type="Texture2D" uid="uid://cb8kf0afqj67p" path="res://resources/ldtk-levels/test1/simplified/Level_2/Walls.png" id="2_0rk7r"]
 [ext_resource type="Script" path="res://scripts/Rooms/Door.cs" id="3_drdja"]
+[ext_resource type="Texture2D" uid="uid://bdfe6nsvprwxq" path="res://resources/CustomTiles/RedDoor.png" id="5_l4mur"]
+[ext_resource type="Script" path="res://scripts/Rooms/DoorBlock.cs" id="6_5fgkh"]
+[ext_resource type="Texture2D" uid="uid://chieltwcttq36" path="res://resources/CustomTiles/RedFlag.png" id="6_bgtto"]
+[ext_resource type="PackedScene" uid="uid://d1spih5q3quec" path="res://scenes/Scale.tscn" id="8_r6ctk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eg3u8"]
 size = Vector2(22, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gvvh"]
+size = Vector2(32, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wlwq8"]
+size = Vector2(32, 7)
 
 [node name="Room1" type="Node2D"]
 scale = Vector2(2, 2)
@@ -45,4 +55,41 @@ room = NodePath("../..")
 position = Vector2(-0.5, -120)
 shape = SubResource("RectangleShape2D_eg3u8")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="DoorBlock1" type="Sprite2D" parent="." node_paths=PackedStringArray("room", "blocker", "trigger")]
+position = Vector2(1, -120)
+texture = ExtResource("5_l4mur")
+script = ExtResource("6_5fgkh")
+useScaleColor = true
+room = NodePath("..")
+blocker = NodePath("Blocker1")
+trigger = NodePath("Trigger1")
+
+[node name="Blocker1" type="StaticBody2D" parent="DoorBlock1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorBlock1/Blocker1"]
+position = Vector2(-1, 2.5)
+shape = SubResource("RectangleShape2D_4gvvh")
+
+[node name="Trigger1" type="Area2D" parent="DoorBlock1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorBlock1/Trigger1"]
+position = Vector2(-1, 10.5)
+shape = SubResource("RectangleShape2D_wlwq8")
+
+[node name="DoorFlag1" type="Sprite2D" parent="."]
+position = Vector2(-23, -120)
+texture = ExtResource("6_bgtto")
+
+[node name="DoorFlag2" type="Sprite2D" parent="."]
+position = Vector2(24, -120)
+texture = ExtResource("6_bgtto")
+
+[node name="Scale" parent="." instance=ExtResource("8_r6ctk")]
+position = Vector2(-55.5, -42)
+scale = Vector2(0.5, 0.5)
+
+[node name="ScaleVisual" parent="Scale" index="2"]
+color = 0
+bounceFactor = 6.0
+
+[editable path="Scale"]
