@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dfeu8howl1msj"
+
+[deps]
+
+files=["res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation"]
+
+source_file="res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.csv"
+dest_files=["res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation", "res://resources/ldtk-levels/test1/simplified/Level_3/IntGrid.0.translation"]
+
+[params]
+
+compress=true
+delimiter=0
