@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4a4xbuev7mrc"]
+
+[ext_resource type="PackedScene" uid="uid://dl3ceimd1tgtu" path="res://scenes/Rooms/Room1.tscn" id="1_eegrt"]
+[ext_resource type="PackedScene" uid="uid://tju1fd2ldxx" path="res://scenes/Rooms/Room2.tscn" id="2_d5304"]
+[ext_resource type="PackedScene" uid="uid://b8yj34ybq3wwf" path="res://scenes/player.tscn" id="3_bkv3o"]
+[ext_resource type="Script" path="res://scripts/Rooms/RoomSwitcher.cs" id="4_6i42y"]
+[ext_resource type="Script" path="res://scripts/Input/PlayerInput.cs" id="4_p8oe5"]
+
+[node name="GameWorld" type="Node2D"]
+
+[node name="Room1" parent="." instance=ExtResource("1_eegrt")]
+unique_name_in_owner = true
+
+[node name="Room2" parent="." instance=ExtResource("2_d5304")]
+visible = false
+
+[node name="Player" parent="." instance=ExtResource("3_bkv3o")]
+position = Vector2(-10, 115)
+scale = Vector2(2, 2)
+
+[node name="PlayerInput" type="Node" parent="." node_paths=PackedStringArray("playerMovement")]
+script = ExtResource("4_p8oe5")
+playerMovement = NodePath("../Player/PlayerMovement")
+
+[node name="RoomSwitcher" type="Node" parent="." node_paths=PackedStringArray("rooms", "player")]
+script = ExtResource("4_6i42y")
+rooms = [NodePath("../Room1"), NodePath("../Room2")]
+player = NodePath("../Player")

@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://dl3ceimd1tgtu"]
+
+[ext_resource type="Script" path="res://scripts/Rooms/Room.cs" id="1_8yomr"]
+[ext_resource type="Texture2D" uid="uid://by2kd5ral4rhk" path="res://resources/ldtk-levels/test1/simplified/Level_2/Floor.png" id="1_uhpbe"]
+[ext_resource type="Texture2D" uid="uid://dmbtm32pjop6q" path="res://resources/ldtk-levels/test1/simplified/Level_2/Walls.png" id="2_0rk7r"]
+[ext_resource type="Script" path="res://scripts/Rooms/Door.cs" id="3_drdja"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eg3u8"]
+size = Vector2(22, 6)
+
+[node name="Room1" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_8yomr")
+roomNumber = 1
+
+[node name="Floor" type="Sprite2D" parent="."]
+texture = ExtResource("1_uhpbe")
+
+[node name="Walls" type="Sprite2D" parent="."]
+texture = ExtResource("2_0rk7r")
+
+[node name="WallCollision" type="StaticBody2D" parent="Walls"]
+position = Vector2(-292.5, -150)
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/WallCollision"]
+position = Vector2(360, 76)
+build_mode = 1
+polygon = PackedVector2Array(1, 0, 199, 0, 199, -26, 251, -26, 251, 0, 449, 0, 449, 448, 1, 448)
+
+[node name="Pedestal" type="StaticBody2D" parent="Walls"]
+position = Vector2(-292.5, -150)
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Pedestal"]
+polygon = PackedVector2Array(425, 268, 425, 172, 521, 172, 521, 268, 517, 268, 517, 236, 509, 236, 509, 190, 437, 190, 437, 236, 429, 236, 429, 268)
+
+[node name="Exit1" type="Area2D" parent="Walls" node_paths=PackedStringArray("room")]
+script = ExtResource("3_drdja")
+targetPosition = Vector2(-12, 204)
+targetRoom = 2
+room = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Exit1"]
+position = Vector2(-0.5, -120)
+shape = SubResource("RectangleShape2D_eg3u8")
+
+[node name="Node2D" type="Node2D" parent="."]
