@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bv1xxb8o2ld4p"]
+
+[node name="Pedestal" type="StaticBody2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(425, 236, 425, 172, 521, 172, 521, 236, 509, 236, 509, 190, 437, 190, 437, 236)

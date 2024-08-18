@@ -8,7 +8,7 @@ public partial class RoomSwitcher : Node {
     [Export]
     private Room[] rooms;
     [Export]
-    private CharacterBody2D player;
+    private PlayerCollision player;
 
     public override void _Ready () {
         base._Ready();
@@ -18,12 +18,9 @@ public partial class RoomSwitcher : Node {
     }
 
     public void ChangeRoom (int fromRoom, int toRoom, Vector2 targetPosition) {
-        player.SetCollisionMaskValue(fromRoom, false);
-        player.SetCollisionLayerValue(fromRoom, false);
         rooms.Where(r => r.RoomNumber == fromRoom).First().Hide();
-        player.SetCollisionMaskValue(toRoom, true);
-        player.SetCollisionLayerValue(toRoom, true);
         rooms.Where(r => r.RoomNumber == toRoom).First().Show();
+        player.ChangeCollisionNumber(toRoom);
         player.Position = targetPosition;
     }
 

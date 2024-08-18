@@ -17,8 +17,8 @@
 visible = false
 
 [node name="Player" parent="." instance=ExtResource("3_bkv3o")]
-position = Vector2(-10, 116)
-scale = Vector2(2, 2)
+position = Vector2(-10, 167)
+scale = Vector2(1.5, 1.5)
 
 [node name="PlayerInput" type="Node" parent="." node_paths=PackedStringArray("playerMovement")]
 script = ExtResource("4_p8oe5")

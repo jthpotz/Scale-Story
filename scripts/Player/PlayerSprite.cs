@@ -5,32 +5,37 @@ using ListExtensions;
 using Player;
 using ScaleColor = Scale.ScaleVisual.ScaleColor;
 
-public partial class PlayerSprite : AnimatedSprite2D
-{
-    
-    [Export]
-	private PlayerMovement playerMovement;
-    
-    [Export]
-	private PlayerVisual playerVisual;
+public partial class PlayerSprite : AnimatedSprite2D {
 
     [Export]
-	private AnimatedSprite2D fireSprite;
+    private PlayerMovement playerMovement;
+
+    [Export]
+    private PlayerVisual playerVisual;
+
+    [Export]
+    private AnimatedSprite2D fireSprite;
+
+    [Export]
+    private FireArea fireArea;
 
     private bool big = false;
     private bool smol = false;
 
-	public override void _Ready()
-	{
-		Play("walk");
+    public override void _Ready () {
+        Play("walk");
         AnimationFinished += MyOnAnimationFinished;
-	}
+        fireSprite.AnimationFinished += FireAnimDone;
+    }
 
-    private void MyOnAnimationFinished() {
+    private void FireAnimDone () {
+        fireArea.DisableFireArea();
+    }
+
+    private void MyOnAnimationFinished () {
         if (playerMovement.IsMoving()) {
             Play("walk");
-        }
-        else {
+        } else {
             var list = new List<string> { "blink", "look-around", "flap-twice" };
             Play(list.GetRandomItem());
         }
@@ -39,53 +44,48 @@ public partial class PlayerSprite : AnimatedSprite2D
     public override void _Input (InputEvent @event) {
         if (@event.IsActionPressed("Roar")) {
             Roar();
-        } 
-        else if (@event.IsActionPressed("Grow")) {
+        } else if (@event.IsActionPressed("Grow")) {
             Grow();
-        } 
-        else if (@event.IsActionPressed("Shrink")) {
+        } else if (@event.IsActionPressed("Shrink")) {
             Shrink();
-        } 
-    }
-
-    private void Roar() {
-        if (playerVisual.HasScale(ScaleColor.Orange.ToString())) {
-            Play("roar");
-            fireSprite.Play("flame");
         }
     }
 
-    private void Grow() {
+    private void Roar () {
+        if (playerVisual.HasScale(ScaleColor.Orange.ToString())) {
+            Play("roar");
+            fireSprite.Play("flame");
+            fireArea.EnableFireArea();
+        }
+    }
+
+    private void Grow () {
         if (!playerVisual.HasScale(ScaleColor.Red.ToString()))
             return;
         if (big) {
             playerVisual.Parent.Scale /= 2;
             big = false;
-        }
-        else if (smol) {
+        } else if (smol) {
             playerVisual.Parent.Scale *= 4;
             big = true;
             smol = false;
-        }
-        else {
+        } else {
             playerVisual.Parent.Scale *= 2;
             big = true;
         }
     }
 
-    private void Shrink() {
+    private void Shrink () {
         if (!playerVisual.HasScale(ScaleColor.Green.ToString()))
             return;
         if (smol) {
             playerVisual.Parent.Scale *= 2;
             smol = false;
-        }
-        else if (big) {
+        } else if (big) {
             playerVisual.Parent.Scale /= 4;
             smol = true;
             big = false;
-        }
-        else {
+        } else {
             playerVisual.Parent.Scale /= 2;
             smol = true;
         }

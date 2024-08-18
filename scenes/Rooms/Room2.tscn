@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://tju1fd2ldxx"]
+[gd_scene load_steps=11 format=3 uid="uid://tju1fd2ldxx"]
 
 [ext_resource type="Script" path="res://scripts/Rooms/Room.cs" id="1_4hen5"]
 [ext_resource type="Texture2D" uid="uid://vwd24gp0ploo" path="res://resources/ldtk-levels/test1/simplified/Level_5/Floor.png" id="1_q1nl1"]
 [ext_resource type="Texture2D" uid="uid://031rrcqsmv4o" path="res://resources/ldtk-levels/test1/simplified/Level_5/Walls.png" id="2_1u5ek"]
+[ext_resource type="PackedScene" uid="uid://dqhlkbtesbrwm" path="res://scenes/Rooms/Objects/Colliders/Fountain.tscn" id="4_03icc"]
 [ext_resource type="Script" path="res://scripts/Rooms/Door.cs" id="4_y5af8"]
+[ext_resource type="PackedScene" uid="uid://bv1xxb8o2ld4p" path="res://scenes/Rooms/Objects/Colliders/Pedestal.tscn" id="5_c4gqn"]
+[ext_resource type="PackedScene" uid="uid://btjiy5wjf3n6s" path="res://scenes/Rooms/Objects/LitFountain.tscn" id="5_ubs7y"]
+[ext_resource type="PackedScene" uid="uid://d1spih5q3quec" path="res://scenes/Scale.tscn" id="6_3pe31"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kn3rh"]
 size = Vector2(22, 6)
@@ -31,19 +35,7 @@ position = Vector2(-112, -112)
 build_mode = 1
 polygon = PackedVector2Array(0, 0, 99, 0, 99, -13, 125, -13, 125, 0, 224, 0, 224, 224, 125, 224, 125, 238, 99, 238, 99, 224, 0, 224)
 
-[node name="Pedestal" type="StaticBody2D" parent="Walls"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Pedestal"]
-polygon = PackedVector2Array(50, -32, 48, -32, 48, -80, 96, -80, 96, -32, 94, -32, 94, -48, 90, -48, 90, -71, 54, -71, 54, -48, 50, -48)
-
-[node name="Fountain1" type="StaticBody2D" parent="Walls"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Fountain1"]
-polygon = PackedVector2Array(-80, 32, -80, -16, -32, -16, -32, 32, -48, 32, -48, 45, -64, 45, -64, 32)
+[node name="Fountain1" parent="Walls" instance=ExtResource("4_03icc")]
 
 [node name="Entrance" type="Area2D" parent="Walls" node_paths=PackedStringArray("room")]
 collision_layer = 2
@@ -64,3 +56,29 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Exit1"]
 position = Vector2(0, -120)
 shape = SubResource("RectangleShape2D_drlrl")
+
+[node name="Pedestal" parent="Walls" instance=ExtResource("5_c4gqn")]
+position = Vector2(-164.5, -166.5)
+collision_layer = 2
+collision_mask = 2
+
+[node name="LitFountain1" parent="." instance=ExtResource("5_ubs7y")]
+position = Vector2(-56, 32)
+
+[node name="Area2D" parent="LitFountain1" index="0"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Scale" parent="." instance=ExtResource("6_3pe31")]
+position = Vector2(73, -58)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D" parent="Scale" index="0"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="ScaleVisual" parent="Scale" index="2"]
+color = 1
+
+[editable path="LitFountain1"]
+[editable path="Scale"]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://b8yj34ybq3wwf"]
+[gd_scene load_steps=22 format=3 uid="uid://b8yj34ybq3wwf"]
 
+[ext_resource type="Script" path="res://scripts/Player/PlayerCollision.cs" id="1_f3rpu"]
 [ext_resource type="Texture2D" uid="uid://dtdr18cr4sck1" path="res://resources/dragon/dragon-left-standing.png" id="1_no2bc"]
 [ext_resource type="Texture2D" uid="uid://jxkyyf6dv5lf" path="res://resources/dragon/dragon-right-standing.png" id="2_0wfxg"]
 [ext_resource type="Script" path="res://scripts/Player/PlayerMovement.cs" id="2_3urtb"]
@@ -15,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cnvi5hpqc8v1v" path="res://resources/dragon/dragon-fire-small.png" id="13_k313i"]
 [ext_resource type="Texture2D" uid="uid://b8ncs0vjxylxm" path="res://resources/dragon/dragon-fire-med.png" id="14_4tcec"]
 [ext_resource type="Texture2D" uid="uid://cu8x1y8v5ltak" path="res://resources/dragon/dragon-fire-big.png" id="15_2cdt4"]
+[ext_resource type="Script" path="res://scripts/Player/FireArea.cs" id="17_td83u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ekddl"]
 size = Vector2(24, 22)
@@ -145,13 +147,17 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmv06"]
+size = Vector2(13.5, 13.5)
+
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_f3rpu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(6, -1)
 shape = SubResource("RectangleShape2D_ekddl")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("playerMovement", "playerVisual", "fireSprite")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("playerMovement", "playerVisual", "fireSprite", "fireArea")]
 position = Vector2(6, -1)
 scale = Vector2(1.5, 1.375)
 sprite_frames = SubResource("SpriteFrames_1bmxf")
@@ -162,6 +168,7 @@ script = ExtResource("7_eccii")
 playerMovement = NodePath("../PlayerMovement")
 playerVisual = NodePath("../PlayerVisual")
 fireSprite = NodePath("../FireSprite2D")
+fireArea = NodePath("../FireArea")
 
 [node name="PlayerMovement" type="Node" parent="." node_paths=PackedStringArray("playerVisual", "animatedSprite")]
 script = ExtResource("2_3urtb")
@@ -180,3 +187,13 @@ animation = &"flame"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="FireArea" type="Area2D" parent="." node_paths=PackedStringArray("playerCollision")]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("17_td83u")
+playerCollision = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireArea"]
+position = Vector2(25, -4)
+shape = SubResource("RectangleShape2D_wmv06")

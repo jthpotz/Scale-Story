@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dqhlkbtesbrwm"]
+
+[node name="Fountain" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+polygon = PackedVector2Array(-80, 32, -80, -16, -32, -16, -32, 32)
