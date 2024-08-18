@@ -49,13 +49,15 @@ public partial class PlayerSprite : AnimatedSprite2D
     }
 
     private void Roar() {
-        if (playerVisual.HasScale(ScaleColor.Pink.ToString())) {
+        if (playerVisual.HasScale(ScaleColor.Orange.ToString())) {
             Play("roar");
             fireSprite.Play("flame");
         }
     }
 
     private void Grow() {
+        if (!playerVisual.HasScale(ScaleColor.Red.ToString()))
+            return;
         if (big) {
             playerVisual.Parent.Scale /= 2;
             big = false;
@@ -72,6 +74,8 @@ public partial class PlayerSprite : AnimatedSprite2D
     }
 
     private void Shrink() {
+        if (!playerVisual.HasScale(ScaleColor.Green.ToString()))
+            return;
         if (smol) {
             playerVisual.Parent.Scale *= 2;
             smol = false;
