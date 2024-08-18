@@ -1,5 +1,8 @@
 using System;
+using System.Collections.Immutable;
+using System.Linq;
 using Godot;
+using Godot.Collections;
 
 public partial class LightFountain : Node2D {
 
@@ -22,6 +25,10 @@ public partial class LightFountain : Node2D {
     public void Light (Node2D other) {
         Show();
         onLight?.Invoke();
+    }
+
+    public void Quench () {
+        Hide();
     }
 
 }

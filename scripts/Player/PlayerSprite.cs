@@ -56,6 +56,7 @@ public partial class PlayerSprite : AnimatedSprite2D {
             Play("roar");
             fireSprite.Play("flame");
             fireArea.EnableFireArea();
+            playerMovement.Roar();
         }
     }
 

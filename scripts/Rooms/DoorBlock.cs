@@ -23,18 +23,23 @@ public partial class DoorBlock : Node2D {
         base._Ready();
 
         if (useScaleColor) trigger.BodyEntered += CheckColorTrigger;
+        EnableDoorBlock();
     }
 
     public void DisableDoorBlock () {
         Hide();
         blocker.SetCollisionLayerValue(room.RoomNumber, false);
         blocker.SetCollisionMaskValue(room.RoomNumber, false);
+        trigger.SetCollisionLayerValue(room.RoomNumber, false);
+        trigger.SetCollisionMaskValue(room.RoomNumber, false);
     }
 
     public void EnableDoorBlock () {
         Show();
         blocker.SetCollisionLayerValue(room.RoomNumber, true);
         blocker.SetCollisionMaskValue(room.RoomNumber, true);
+        trigger.SetCollisionLayerValue(room.RoomNumber, true);
+        trigger.SetCollisionMaskValue(room.RoomNumber, true);
     }
 
     public void CheckColorTrigger (Node2D other) {

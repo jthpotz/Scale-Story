@@ -12,13 +12,14 @@
 [node name="GameWorld" type="Node2D"]
 
 [node name="Room1" parent="." instance=ExtResource("1_eegrt")]
+visible = false
 
 [node name="Room2" parent="." instance=ExtResource("2_d5304")]
-visible = false
 
 [node name="Player" parent="." instance=ExtResource("3_bkv3o")]
 position = Vector2(-10, 167)
 scale = Vector2(1.5, 1.5)
+currentCollisionNumber = 2
 
 [node name="PlayerInput" type="Node" parent="." node_paths=PackedStringArray("playerMovement")]
 script = ExtResource("4_p8oe5")
