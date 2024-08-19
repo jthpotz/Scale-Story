@@ -142,6 +142,10 @@ namespace Scale {
             shrinking = true;
             Timekeeper.StartTimer(shrinkTimer);
             other.GetNode<PlayerVisual>("PlayerVisual").AddScale(color.ToString());
+
+            AudioStreamPlayer2D music = GetNode<AudioStreamPlayer2D>("/root/GameWorld/AudioStreamPlayer2D");
+            music.Stream = GD.Load<AudioStreamMP3>("res://resources/music/pickup-scale.mp3");
+            music.Play();
         }
 
     }

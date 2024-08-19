@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b45daabjkmxxg"]
+[gd_scene load_steps=11 format=3 uid="uid://bimil06xtv6te"]
 
 [ext_resource type="Script" path="res://scripts/UI/ScaleInventory.cs" id="1_g26sf"]
 [ext_resource type="Texture2D" uid="uid://caofm1eppge6b" path="res://resources/scales/scale-red.png" id="1_p8yyj"]

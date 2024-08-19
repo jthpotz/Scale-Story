@@ -17,7 +17,7 @@ public partial class Room2Unlock : Node {
     }
 
     public void UnlockDoor () {
-        doorBlock.DisableDoorBlock();
+        doorBlock.DisableDoorBlock(true);
     }
 
 }

@@ -11,6 +11,20 @@ public partial class LightFountain : Node2D {
 
     private Action onLight;
 
+    [Export]
+    private FountainNote note;
+
+    public enum FountainNote {
+            A,
+            B,
+            C,
+            D,
+            E,
+            F,
+            G,
+            HighA
+        }
+
     public override void _Ready () {
         base._Ready();
 
@@ -22,8 +36,15 @@ public partial class LightFountain : Node2D {
         onLight = lightAction;
     }
 
+    public void SetNote (FountainNote note) {
+        this.note = note;
+    }
+
     public void Light (Node2D other) {
         Show();
+        AudioStreamPlayer2D music = GetNode<AudioStreamPlayer2D>("/root/GameWorld/AudioStreamPlayer2D");
+        music.Stream = GD.Load<AudioStreamMP3>("res://resources/music/fire/" + note.ToString() + ".mp3");
+        music.Play();
         onLight?.Invoke();
     }
 
