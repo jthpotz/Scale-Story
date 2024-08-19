@@ -23,9 +23,8 @@ public partial class RoomSwitcher : Node {
         rooms.Where(r => r.RoomNumber == fromRoom).First().Hide();
         rooms.Where(r => r.RoomNumber == toRoom).First().Show();
 
-        AudioStreamPlayer2D music = GetNode<AudioStreamPlayer2D>("/root/GameWorld/AudioStreamPlayer2D");
-        music.Stream = GD.Load<AudioStreamMP3>("res://resources/music/enter-room.mp3");
-        music.Play();
+        AudioQueue music = GetNode<AudioQueue>("/root/GameWorld/SFXPlayer");
+        music.QueueSound("res://resources/music/enter-room.mp3", AudioQueue.AudioType.mp3);
     }
 
 }

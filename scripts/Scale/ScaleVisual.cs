@@ -130,6 +130,8 @@ namespace Scale {
             parent.QueueFree();
             string path = "/root/GameWorld/ScaleCanvasLayer/ScaleInventory/%" + color + "ScaleBtn";
             GetNode<CanvasItem>(path).Show();
+            path = "/root/GameWorld/ScaleCanvasLayer/ScaleInventory";
+            GetNode<ScaleInventory>(path).ShowDefinition(color);
         }
 
         private static float Easing (float x) {
@@ -143,9 +145,8 @@ namespace Scale {
             Timekeeper.StartTimer(shrinkTimer);
             other.GetNode<PlayerVisual>("PlayerVisual").AddScale(color.ToString());
 
-            AudioStreamPlayer2D music = GetNode<AudioStreamPlayer2D>("/root/GameWorld/AudioStreamPlayer2D");
-            music.Stream = GD.Load<AudioStreamMP3>("res://resources/music/pickup-scale.mp3");
-            music.Play();
+            AudioQueue music = GetNode<AudioQueue>("/root/GameWorld/SFXPlayer");
+            music.Play("res://resources/music/pickup-scale.mp3", AudioQueue.AudioType.mp3);
         }
 
     }

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dkbmidlvwahw4"]
 
-[ext_resource type="Texture2D" uid="uid://67q30vo7hn6j" path="res://icon.svg" id="1_w28w4"]
 [ext_resource type="Theme" uid="uid://cu0tkhpwcwcpw" path="res://resources/themes/MainTheme.tres" id="2_1jo42"]
+[ext_resource type="Texture2D" uid="uid://s6dahce1yb72" path="res://resources/scale-story-logo.png" id="2_6fg0w"]
 [ext_resource type="Script" path="res://scripts/UI/StartButton.cs" id="3_oa4w3"]
 [ext_resource type="Script" path="res://scripts/UI/QuitButton.cs" id="4_40dkx"]
 
@@ -26,7 +26,7 @@ alignment = 1
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource("1_w28w4")
+texture = ExtResource("2_6fg0w")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -36,7 +36,7 @@ alignment = 1
 layout_mode = 2
 text = "Start"
 script = ExtResource("3_oa4w3")
-TargetScene = "res://scenes/game.tscn"
+TargetScene = "res://scenes/Rooms/GameWorld.tscn"
 
 [node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2

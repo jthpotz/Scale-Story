@@ -13,7 +13,7 @@ public partial class DoorBlock : Node2D {
     [Export]
     private Room room;
 
-    private AudioStreamPlayer2D music;
+    private AudioQueue music;
 
     [Export]
     private StaticBody2D blocker;
@@ -29,7 +29,7 @@ public partial class DoorBlock : Node2D {
         if (useScaleColor) trigger.BodyEntered += CheckColorTrigger;
         EnableDoorBlock(false);
 
-        music = GetNode<AudioStreamPlayer2D>("/root/GameWorld/AudioStreamPlayer2D");
+        music = GetNode<AudioQueue>("/root/GameWorld/SFXPlayer");
     }
 
     public void DisableDoorBlock (bool sound) {
@@ -40,8 +40,7 @@ public partial class DoorBlock : Node2D {
             trigger.SetCollisionLayerValue(room.RoomNumber, false);
             trigger.SetCollisionMaskValue(room.RoomNumber, false);
             if (sound) {
-                music.Stream = GD.Load<AudioStreamMP3>("res://resources/music/door-open.mp3");
-                music.Play();
+                music.QueueSound("res://resources/music/door-open.mp3", AudioQueue.AudioType.mp3);
             }
             
         }
@@ -55,8 +54,7 @@ public partial class DoorBlock : Node2D {
             trigger.SetCollisionLayerValue(room.RoomNumber, true);
             trigger.SetCollisionMaskValue(room.RoomNumber, true);
             if (sound) {
-                music.Stream = GD.Load<AudioStreamMP3>("res://resources/music/door-close.mp3");
-                music.Play();
+                music.Play("res://resources/music/door-close.mp3", AudioQueue.AudioType.mp3);
             }
         }
     }
@@ -67,8 +65,7 @@ public partial class DoorBlock : Node2D {
             if (other.GetNode<PlayerVisual>("PlayerVisual").HasScale(scaleNeeded.ToString())) 
                 DisableDoorBlock(true);
             else {
-                music.Stream = GD.Load<AudioStreamMP3>("res://resources/music/door-knock.mp3");
-                music.Play();
+                music.Play("res://resources/music/door-knock.mp3", AudioQueue.AudioType.mp3);
             }
         }
         

@@ -48,9 +48,8 @@ public partial class LightFountain : Node2D {
 
     public void Light (Node2D other) {
         Show();
-        AudioStreamPlayer2D music = GetNode<AudioStreamPlayer2D>("/root/GameWorld/AudioStreamPlayer2D");
-        music.Stream = GD.Load<AudioStreamMP3>("res://resources/music/fire/" + note.ToString() + ".mp3");
-        music.Play();
+        AudioQueue music = GetNode<AudioQueue>("/root/GameWorld/SFXPlayer");
+        music.QueueSound("res://resources/music/fire/" + note.ToString() + ".mp3", AudioQueue.AudioType.mp3);
         onLight?.Invoke();
     }
 
