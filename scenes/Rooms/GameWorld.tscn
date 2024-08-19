@@ -78,9 +78,11 @@ playerMovement = NodePath("../../Player/PlayerMovement")
 visible = false
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 script = ExtResource("9_qllnr")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("10_rycb5")
 volume_db = -15.0
 autoplay = true
