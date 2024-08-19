@@ -1,14 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwx5wx7mh75r"]
+[gd_scene load_steps=12 format=3 uid="uid://cwx5wx7mh75r"]
 
 [ext_resource type="Script" path="res://scripts/Rooms/Room.cs" id="1_s22r7"]
-[ext_resource type="Texture2D" uid="uid://b4prp1vy46ps6" path="res://resources/ldtk-levels/test1/simplified/Level_1/Floor.png" id="1_utg4d"]
-[ext_resource type="Texture2D" uid="uid://ba0rv0hekxkve" path="res://resources/ldtk-levels/test1/simplified/Level_1/Walls.png" id="2_en7if"]
+[ext_resource type="Texture2D" uid="uid://ipjycnw4jkny" path="res://resources/ldtk-levels/test1/simplified/Level_1/Floor.png" id="1_utg4d"]
+[ext_resource type="Texture2D" uid="uid://cxtqsnu3fkrm3" path="res://resources/ldtk-levels/test1/simplified/Level_1/Walls.png" id="2_en7if"]
 [ext_resource type="PackedScene" uid="uid://dqhlkbtesbrwm" path="res://scenes/Rooms/Objects/Colliders/Fountain.tscn" id="3_6cvu2"]
 [ext_resource type="PackedScene" uid="uid://bldj6weiimfgk" path="res://scenes/Rooms/Objects/Colliders/Door.tscn" id="4_28xla"]
 [ext_resource type="PackedScene" uid="uid://btjiy5wjf3n6s" path="res://scenes/Rooms/Objects/LitFountain.tscn" id="4_d5llo"]
 [ext_resource type="Script" path="res://scripts/Rooms/SetCollision.cs" id="4_yqfwe"]
 [ext_resource type="PackedScene" uid="uid://c3fdc0eb8d5to" path="res://scenes/Rooms/Objects/DoorBlock.tscn" id="5_4xcgk"]
+[ext_resource type="PackedScene" uid="uid://t6n882fh84on" path="res://scenes/Rooms/Objects/Colliders/DoorClimb.tscn" id="7_l7pax"]
 [ext_resource type="Script" path="res://scripts/Rooms/Unlockers/Room3Unlock.cs" id="9_5h1es"]
+[ext_resource type="PackedScene" uid="uid://chdjwvarq2j1a" path="res://scenes/Rooms/Objects/WallCimb.tscn" id="11_c1sjf"]
 
 [node name="Room3" type="Node2D"]
 scale = Vector2(2, 2)
@@ -32,7 +34,7 @@ build_mode = 1
 polygon = PackedVector2Array(-112, -112, -77, -112, -77, -125, -51, -125, -51, -112, 51, -112, 51, -125, 77, -125, 77, -112, 112, -112, 112, 112, 13, 112, 13, 126, -13, 126, -13, 112, -112, 112)
 
 [node name="Fountain" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("3_6cvu2")]
-position = Vector2(-0.5, -32)
+position = Vector2(-0.5, -16.5)
 room = NodePath("../..")
 
 [node name="Fountain2" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("3_6cvu2")]
@@ -59,8 +61,12 @@ targetPosition = Vector2(-170, 208)
 targetRoom = 4
 room = NodePath("../..")
 
+[node name="DoorClimb" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("7_l7pax")]
+position = Vector2(-128.5, -0.5)
+room = NodePath("../..")
+
 [node name="LitFountain1" parent="." node_paths=PackedStringArray("room") instance=ExtResource("4_d5llo")]
-position = Vector2(-56, -0.5)
+position = Vector2(-56, 16)
 room = NodePath("..")
 
 [node name="LitFountain2" parent="." node_paths=PackedStringArray("room") instance=ExtResource("4_d5llo")]
@@ -89,3 +95,7 @@ fountain2 = NodePath("../LitFountain2")
 fountain3 = NodePath("../LitFountain3")
 doorBlock1 = NodePath("../DoorBlock1")
 doorBlock2 = NodePath("../DoorBlock2")
+
+[node name="WallClimb" parent="." node_paths=PackedStringArray("room") instance=ExtResource("11_c1sjf")]
+position = Vector2(-64, -71)
+room = NodePath("..")
