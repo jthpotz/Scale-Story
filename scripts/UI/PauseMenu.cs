@@ -5,6 +5,9 @@ public partial class PauseMenu : Control {
     [Export]
     private string targetScene = "";
 
+    [Export]
+    private PlayerMovement playerMovement;
+
     private Button ResumeButton { get; set; } = default;
 
     private Button MainMenuButton { get; set; } = default;
@@ -33,8 +36,10 @@ public partial class PauseMenu : Control {
     private void PauseAction () {
         paused = !paused;
         GetTree().Paused = paused;
-        if (paused) Show();
-        else Hide();
+        if (paused) {
+            Show();
+            playerMovement.StopMoving();
+        } else Hide();
     }
 
     private void ReturnToMainMenu () {

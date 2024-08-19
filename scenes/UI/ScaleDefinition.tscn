@@ -81,6 +81,6 @@ text = "(optional) action granted by scale"
 layout_mode = 2
 theme_override_colors/font_color = Color(0.571095, 0.375366, 0.12882, 1)
 theme_override_font_sizes/font_size = 16
-text = "Click anywhere to resume play."
+text = "Press Space or click anywhere to resume play."
 horizontal_alignment = 1
 vertical_alignment = 2

@@ -49,12 +49,13 @@ player = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_ntv6n")]
+[node name="PauseMenu" parent="CanvasLayer" node_paths=PackedStringArray("playerMovement") instance=ExtResource("6_ntv6n")]
 visible = false
+playerMovement = NodePath("../../Player/PlayerMovement")
 
 [node name="ScaleCanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ScaleInventory" parent="ScaleCanvasLayer" instance=ExtResource("7_xv78h")]
+[node name="ScaleInventory" parent="ScaleCanvasLayer" node_paths=PackedStringArray("playerMovement") instance=ExtResource("7_xv78h")]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -63,6 +64,7 @@ offset_top = -76.0
 offset_bottom = -76.0
 grow_vertical = 0
 scale = Vector2(2, 2)
+playerMovement = NodePath("../../Player/PlayerMovement")
 
 [node name="ScaleDefinition" parent="ScaleCanvasLayer" instance=ExtResource("8_j1tbi")]
 visible = false
