@@ -19,6 +19,8 @@ public partial class PlayerSprite : AnimatedSprite2D {
     [Export]
     private FireArea fireArea;
 
+    private AudioStreamPlayer2D music;
+
     private bool big = false;
     private bool smol = false;
 
@@ -26,6 +28,7 @@ public partial class PlayerSprite : AnimatedSprite2D {
         Play("walk");
         AnimationFinished += MyOnAnimationFinished;
         fireSprite.AnimationFinished += FireAnimDone;
+        music = GetNode<AudioStreamPlayer2D>("/root/GameWorld/AudioStreamPlayer2D");
     }
 
     private void FireAnimDone () {
@@ -57,6 +60,8 @@ public partial class PlayerSprite : AnimatedSprite2D {
             fireSprite.Play("flame");
             fireArea.EnableFireArea();
             playerMovement.Roar();
+            music.Stream = GD.Load<AudioStreamMP3>("res://resources/music/fireball.mp3");
+            music.Play();
         }
     }
 
@@ -74,6 +79,10 @@ public partial class PlayerSprite : AnimatedSprite2D {
             playerVisual.Parent.Scale *= 2;
             big = true;
         }
+        if (big) {
+            music.Stream = GD.Load<AudioStreamWav>("res://resources/music/grow.wav");
+            music.Play();
+        }
     }
 
     private void Shrink () {
@@ -89,6 +98,10 @@ public partial class PlayerSprite : AnimatedSprite2D {
         } else {
             playerVisual.Parent.Scale /= 2;
             smol = true;
+        }
+        if (smol) {
+            music.Stream = GD.Load<AudioStreamWav>("res://resources/music/shrink.wav");
+            music.Play();
         }
     }
 }

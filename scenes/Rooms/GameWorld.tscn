@@ -48,3 +48,5 @@ scale = Vector2(2, 2)
 
 [node name="ScaleDefinition" parent="ScaleCanvasLayer" instance=ExtResource("8_j1tbi")]
 visible = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
