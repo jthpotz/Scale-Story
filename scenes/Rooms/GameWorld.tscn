@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4a4xbuev7mrc"]
+[gd_scene load_steps=11 format=3 uid="uid://c4a4xbuev7mrc"]
 
 [ext_resource type="PackedScene" uid="uid://dl3ceimd1tgtu" path="res://scenes/Rooms/Room1.tscn" id="1_eegrt"]
 [ext_resource type="PackedScene" uid="uid://tju1fd2ldxx" path="res://scenes/Rooms/Room2.tscn" id="2_d5304"]
 [ext_resource type="PackedScene" uid="uid://b8yj34ybq3wwf" path="res://scenes/player.tscn" id="3_bkv3o"]
 [ext_resource type="PackedScene" uid="uid://cwx5wx7mh75r" path="res://scenes/Rooms/Room3.tscn" id="3_r545h"]
 [ext_resource type="Script" path="res://scripts/Rooms/RoomSwitcher.cs" id="4_6i42y"]
+[ext_resource type="PackedScene" uid="uid://dkj2owjnb8t8l" path="res://scenes/Rooms/Room4.tscn" id="4_a1fay"]
 [ext_resource type="Script" path="res://scripts/Input/PlayerInput.cs" id="4_p8oe5"]
 [ext_resource type="PackedScene" uid="uid://dpmqig15i46v6" path="res://scenes/UI/PauseMenu.tscn" id="6_ntv6n"]
 [ext_resource type="PackedScene" uid="uid://b45daabjkmxxg" path="res://scenes/UI/ScaleInventory.tscn" id="7_xv78h"]
@@ -20,6 +21,9 @@ visible = false
 [node name="Room3" parent="." instance=ExtResource("3_r545h")]
 visible = false
 
+[node name="Room4" parent="." instance=ExtResource("4_a1fay")]
+visible = false
+
 [node name="Player" parent="." instance=ExtResource("3_bkv3o")]
 position = Vector2(-10, 160)
 scale = Vector2(1.5, 1.5)
@@ -30,7 +34,7 @@ playerMovement = NodePath("../Player/PlayerMovement")
 
 [node name="RoomSwitcher" type="Node" parent="." node_paths=PackedStringArray("rooms", "player")]
 script = ExtResource("4_6i42y")
-rooms = [NodePath("../Room1"), NodePath("../Room2"), NodePath("../Room3")]
+rooms = [NodePath("../Room1"), NodePath("../Room2"), NodePath("../Room3"), NodePath("../Room4")]
 player = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

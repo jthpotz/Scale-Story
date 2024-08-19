@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4yl7dsh8cmd5"]
+
+[ext_resource type="Texture2D" uid="uid://bwi5u3x2x5c7f" path="res://resources/CustomTiles/ButtonPressed.png" id="1_agqo3"]
+[ext_resource type="Script" path="res://scripts/Rooms/ButtonPress.cs" id="2_c1ncc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjnvm"]
+size = Vector2(14, 16)
+
+[node name="Button1" type="Sprite2D" node_paths=PackedStringArray("area")]
+texture = ExtResource("1_agqo3")
+script = ExtResource("2_c1ncc")
+area = NodePath("Area2D")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_wjnvm")

@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://chdjwvarq2j1a"]
+
+[ext_resource type="Script" path="res://scripts/Rooms/WallClimb.cs" id="1_dx3op"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gvvh"]
+size = Vector2(32, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4e1l4"]
+size = Vector2(36, 9)
+
+[node name="WallClimb" type="Node2D" node_paths=PackedStringArray("room", "blocker", "trigger")]
+position = Vector2(63.5, -71.5)
+script = ExtResource("1_dx3op")
+room = NodePath("")
+blocker = NodePath("Blocker1")
+trigger = NodePath("Trigger1")
+
+[node name="Blocker1" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker1"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_4gvvh")
+
+[node name="Trigger1" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger1"]
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_4e1l4")

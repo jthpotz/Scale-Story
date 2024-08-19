@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://t6n882fh84on"]
+
+[ext_resource type="Script" path="res://scripts/Rooms/SetMultiCollision.cs" id="1_fej80"]
+
+[node name="DoorClimb" type="Node2D" node_paths=PackedStringArray("bodies")]
+script = ExtResource("1_fej80")
+bodies = [NodePath("Right"), NodePath("Left")]
+
+[node name="Right" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Right"]
+polygon = PackedVector2Array(96, -112, 96, -64, 78, -64, 78, -88, 90, -88, 90, -112)
+
+[node name="Left" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Left"]
+polygon = PackedVector2Array(38, -112, 38, -88, 50, -88, 50, -64, 32, -64, 32, -112)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://tju1fd2ldxx"]
 
 [ext_resource type="Script" path="res://scripts/Rooms/Room.cs" id="1_4hen5"]
-[ext_resource type="Texture2D" uid="uid://dx54fmmxrrcdp" path="res://resources/ldtk-levels/test1/simplified/Level_5/Floor.png" id="1_q1nl1"]
-[ext_resource type="Texture2D" uid="uid://dqegu2b1qv3td" path="res://resources/ldtk-levels/test1/simplified/Level_5/Walls.png" id="2_1u5ek"]
+[ext_resource type="Texture2D" uid="uid://nslobmd6a7j6" path="res://resources/ldtk-levels/test1/simplified/Level_5/Floor.png" id="1_q1nl1"]
+[ext_resource type="Texture2D" uid="uid://bn2olygry2ryq" path="res://resources/ldtk-levels/test1/simplified/Level_5/Walls.png" id="2_1u5ek"]
 [ext_resource type="PackedScene" uid="uid://dqhlkbtesbrwm" path="res://scenes/Rooms/Objects/Colliders/Fountain.tscn" id="4_03icc"]
 [ext_resource type="Script" path="res://scripts/Rooms/SetCollision.cs" id="4_4ofyh"]
 [ext_resource type="PackedScene" uid="uid://bv1xxb8o2ld4p" path="res://scenes/Rooms/Objects/Colliders/Pedestal.tscn" id="5_c4gqn"]

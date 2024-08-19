@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://cwx5wx7mh75r"]
 
 [ext_resource type="Script" path="res://scripts/Rooms/Room.cs" id="1_s22r7"]
-[ext_resource type="Texture2D" uid="uid://bsvbam1ej57hw" path="res://resources/ldtk-levels/test1/simplified/Level_1/Floor.png" id="1_utg4d"]
-[ext_resource type="Texture2D" uid="uid://wiuillpqyyar" path="res://resources/ldtk-levels/test1/simplified/Level_1/Walls.png" id="2_en7if"]
+[ext_resource type="Texture2D" uid="uid://b4prp1vy46ps6" path="res://resources/ldtk-levels/test1/simplified/Level_1/Floor.png" id="1_utg4d"]
+[ext_resource type="Texture2D" uid="uid://ba0rv0hekxkve" path="res://resources/ldtk-levels/test1/simplified/Level_1/Walls.png" id="2_en7if"]
 [ext_resource type="PackedScene" uid="uid://dqhlkbtesbrwm" path="res://scenes/Rooms/Objects/Colliders/Fountain.tscn" id="3_6cvu2"]
 [ext_resource type="PackedScene" uid="uid://bldj6weiimfgk" path="res://scenes/Rooms/Objects/Colliders/Door.tscn" id="4_28xla"]
 [ext_resource type="PackedScene" uid="uid://btjiy5wjf3n6s" path="res://scenes/Rooms/Objects/LitFountain.tscn" id="4_d5llo"]
@@ -45,7 +45,7 @@ room = NodePath("../..")
 
 [node name="Entrance" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("4_28xla")]
 position = Vector2(0, 123)
-targetPosition = Vector2(-12, 208)
+targetPosition = Vector2(-10, -204)
 targetRoom = 2
 room = NodePath("../..")
 
@@ -55,6 +55,7 @@ room = NodePath("../..")
 
 [node name="Exit2" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("4_28xla")]
 position = Vector2(63.5, -120)
+targetPosition = Vector2(-170, 208)
 targetRoom = 4
 room = NodePath("../..")
 
