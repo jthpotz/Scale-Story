@@ -9,4 +9,4 @@ collision_mask = 0
 script = ExtResource("1_8x08n")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(425, 236, 425, 172, 521, 172, 521, 236, 509, 236, 509, 190, 437, 190, 437, 236)
+polygon = PackedVector2Array(426, 236, 426, 172, 522, 172, 522, 236, 510, 236, 510, 190, 438, 190, 438, 236)

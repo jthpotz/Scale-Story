@@ -36,7 +36,7 @@ build_mode = 1
 polygon = PackedVector2Array(1, 0, 263, 0, 263, -26, 315, -26, 315, 0, 449, 0, 449, 448, 1, 448)
 
 [node name="Pedestal" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("4_6bkh2")]
-position = Vector2(-292.5, -150.5)
+position = Vector2(-293.5, -150.5)
 room = NodePath("../..")
 
 [node name="Exit1" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("5_8agp5")]
