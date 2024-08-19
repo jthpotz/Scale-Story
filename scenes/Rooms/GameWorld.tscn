@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c4a4xbuev7mrc"]
+[gd_scene load_steps=16 format=3 uid="uid://c4a4xbuev7mrc"]
 
 [ext_resource type="PackedScene" uid="uid://dl3ceimd1tgtu" path="res://scenes/Rooms/Room1.tscn" id="1_eegrt"]
 [ext_resource type="PackedScene" uid="uid://tju1fd2ldxx" path="res://scenes/Rooms/Room2.tscn" id="2_d5304"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ch0ujp63y6lvf" path="res://scenes/Rooms/Room5.tscn" id="5_um606"]
 [ext_resource type="PackedScene" uid="uid://cuinvdledw6ip" path="res://scenes/Rooms/Room6.tscn" id="6_5ht3l"]
 [ext_resource type="PackedScene" uid="uid://dpmqig15i46v6" path="res://scenes/UI/PauseMenu.tscn" id="6_ntv6n"]
+[ext_resource type="PackedScene" uid="uid://cdauekk1lj8h3" path="res://scenes/Rooms/Room7.tscn" id="7_c7osy"]
 [ext_resource type="PackedScene" uid="uid://b45daabjkmxxg" path="res://scenes/UI/ScaleInventory.tscn" id="7_xv78h"]
 [ext_resource type="PackedScene" uid="uid://c2o123xr2qq4w" path="res://scenes/UI/ScaleDefinition.tscn" id="8_j1tbi"]
 [ext_resource type="Script" path="res://scripts/Audio/AudioQueue.cs" id="9_qllnr"]
@@ -34,6 +35,9 @@ visible = false
 [node name="Room6" parent="." instance=ExtResource("6_5ht3l")]
 visible = false
 
+[node name="Room7" parent="." instance=ExtResource("7_c7osy")]
+visible = false
+
 [node name="Player" parent="." instance=ExtResource("3_bkv3o")]
 position = Vector2(-10, 160)
 scale = Vector2(1.25, 1.25)
@@ -44,7 +48,7 @@ playerMovement = NodePath("../Player/PlayerMovement")
 
 [node name="RoomSwitcher" type="Node" parent="." node_paths=PackedStringArray("rooms", "player")]
 script = ExtResource("4_6i42y")
-rooms = [NodePath("../Room1"), NodePath("../Room2"), NodePath("../Room3"), NodePath("../Room4"), NodePath("../Room5"), NodePath("../Room6")]
+rooms = [NodePath("../Room1"), NodePath("../Room2"), NodePath("../Room3"), NodePath("../Room4"), NodePath("../Room5"), NodePath("../Room6"), NodePath("../Room7")]
 player = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

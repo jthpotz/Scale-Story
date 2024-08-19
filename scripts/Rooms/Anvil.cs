@@ -30,6 +30,9 @@ public partial class Anvil : CharacterBody2D {
         SetCollisionLayerValue(room.RoomNumber, true);
         SetCollisionMaskValue(room.RoomNumber, true);
 
+        SetCollisionLayerValue(32 - room.RoomNumber, true);
+        SetCollisionMaskValue(32 - room.RoomNumber, true);
+
         area.BodyEntered += PushAnvil;
 
         areaSize = ((RectangleShape2D)area.GetNode<CollisionShape2D>("CollisionShape2D").Shape).Size;

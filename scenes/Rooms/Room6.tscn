@@ -68,8 +68,9 @@ position = Vector2(72, 32)
 room = NodePath("..")
 note = 5
 
-[node name="PedestalBlock" parent="." instance=ExtResource("9_8xxyl")]
+[node name="PedestalBlock" parent="." node_paths=PackedStringArray("room") instance=ExtResource("9_8xxyl")]
 position = Vector2(-16.5, 0)
+room = NodePath("..")
 
 [node name="Scale" parent="." instance=ExtResource("7_oh52j")]
 position = Vector2(-24, 20.5)
@@ -83,10 +84,11 @@ collision_mask = 32
 color = 6
 bounceFactor = 6.0
 
-[node name="Unlock" type="Node" parent="." node_paths=PackedStringArray("fountain1", "fountain2", "fountain3")]
+[node name="Unlock" type="Node" parent="." node_paths=PackedStringArray("fountain1", "fountain2", "fountain3", "pedestalBlock")]
 script = ExtResource("11_5mrc8")
 fountain1 = NodePath("../LitFountain1")
 fountain2 = NodePath("../LitFountain2")
 fountain3 = NodePath("../LitFountain3")
+pedestalBlock = NodePath("../PedestalBlock")
 
 [editable path="Scale"]
