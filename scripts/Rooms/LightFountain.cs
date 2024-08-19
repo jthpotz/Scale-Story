@@ -7,6 +7,9 @@ using Godot.Collections;
 public partial class LightFountain : Node2D {
 
     [Export]
+    private Room room;
+
+    [Export]
     private Area2D area;
 
     private Action onLight;
@@ -15,18 +18,21 @@ public partial class LightFountain : Node2D {
     private FountainNote note;
 
     public enum FountainNote {
-            A,
-            B,
-            C,
-            D,
-            E,
-            F,
-            G,
-            HighA
-        }
+        A,
+        B,
+        C,
+        D,
+        E,
+        F,
+        G,
+        HighA
+    }
 
     public override void _Ready () {
         base._Ready();
+
+        area.SetCollisionLayerValue(room.RoomNumber, true);
+        area.SetCollisionMaskValue(room.RoomNumber, true);
 
         Hide();
         area.AreaEntered += Light;

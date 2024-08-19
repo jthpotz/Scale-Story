@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dl3ceimd1tgtu"]
+[gd_scene load_steps=11 format=3 uid="uid://dl3ceimd1tgtu"]
 
 [ext_resource type="Script" path="res://scripts/Rooms/Room.cs" id="1_8yomr"]
-[ext_resource type="Texture2D" uid="uid://bt64nepi10t24" path="res://resources/ldtk-levels/test1/simplified/Level_2/Floor.png" id="1_uhpbe"]
-[ext_resource type="Texture2D" uid="uid://dr27o7p6pjy4k" path="res://resources/ldtk-levels/test1/simplified/Level_2/Walls.png" id="2_0rk7r"]
+[ext_resource type="Texture2D" uid="uid://c87itih12i0ee" path="res://resources/ldtk-levels/test1/simplified/Level_2/Floor.png" id="1_uhpbe"]
+[ext_resource type="Texture2D" uid="uid://btky4watn1r7k" path="res://resources/ldtk-levels/test1/simplified/Level_2/Walls.png" id="2_0rk7r"]
 [ext_resource type="PackedScene" uid="uid://bv1xxb8o2ld4p" path="res://scenes/Rooms/Objects/Colliders/Pedestal.tscn" id="4_6bkh2"]
+[ext_resource type="Script" path="res://scripts/Rooms/SetCollision.cs" id="4_h80a1"]
 [ext_resource type="PackedScene" uid="uid://bldj6weiimfgk" path="res://scenes/Rooms/Objects/Colliders/Door.tscn" id="5_8agp5"]
 [ext_resource type="Texture2D" uid="uid://bdfe6nsvprwxq" path="res://resources/CustomTiles/RedDoor.png" id="5_l4mur"]
 [ext_resource type="Texture2D" uid="uid://chieltwcttq36" path="res://resources/CustomTiles/RedFlag.png" id="6_bgtto"]
@@ -21,36 +22,41 @@ texture = ExtResource("1_uhpbe")
 [node name="Walls" type="Sprite2D" parent="."]
 texture = ExtResource("2_0rk7r")
 
-[node name="WallCollision" type="StaticBody2D" parent="Walls"]
+[node name="WallCollision" type="StaticBody2D" parent="Walls" node_paths=PackedStringArray("room")]
 position = Vector2(-292.5, -150)
 scale = Vector2(0.5, 0.5)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("4_h80a1")
+room = NodePath("../..")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/WallCollision"]
 position = Vector2(360, 76)
 build_mode = 1
-polygon = PackedVector2Array(1, 0, 199, 0, 199, -26, 251, -26, 251, 0, 449, 0, 449, 448, 1, 448)
+polygon = PackedVector2Array(1, 0, 263, 0, 263, -26, 315, -26, 315, 0, 449, 0, 449, 448, 1, 448)
 
-[node name="Pedestal" parent="Walls" instance=ExtResource("4_6bkh2")]
+[node name="Pedestal" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("4_6bkh2")]
 position = Vector2(-292.5, -150.5)
+room = NodePath("../..")
 
 [node name="Exit1" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("5_8agp5")]
-position = Vector2(-0.5, -120.5)
-targetPosition = Vector2(-12, 204)
+position = Vector2(32, -120.5)
+targetPosition = Vector2(55, 208)
 targetRoom = 2
 room = NodePath("../..")
 
 [node name="DoorBlock1" parent="." node_paths=PackedStringArray("room") instance=ExtResource("6_ifad8")]
 visible = false
-position = Vector2(0, -120)
+position = Vector2(32, -120)
 texture = ExtResource("5_l4mur")
 room = NodePath("..")
 
 [node name="DoorFlag1" type="Sprite2D" parent="."]
-position = Vector2(-23, -120)
+position = Vector2(8, -120)
 texture = ExtResource("6_bgtto")
 
 [node name="DoorFlag2" type="Sprite2D" parent="."]
-position = Vector2(24, -120)
+position = Vector2(56, -120)
 texture = ExtResource("6_bgtto")
 
 [node name="Scale" parent="." instance=ExtResource("8_r6ctk")]

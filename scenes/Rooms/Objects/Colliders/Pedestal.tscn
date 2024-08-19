@@ -1,7 +1,12 @@
-[gd_scene format=3 uid="uid://bv1xxb8o2ld4p"]
+[gd_scene load_steps=2 format=3 uid="uid://bv1xxb8o2ld4p"]
+
+[ext_resource type="Script" path="res://scripts/Rooms/SetCollision.cs" id="1_8x08n"]
 
 [node name="Pedestal" type="StaticBody2D"]
 scale = Vector2(0.5, 0.5)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_8x08n")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(425, 236, 425, 172, 521, 172, 521, 236, 509, 236, 509, 190, 437, 190, 437, 236)

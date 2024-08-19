@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://dqhlkbtesbrwm"]
+[gd_scene load_steps=2 format=3 uid="uid://dqhlkbtesbrwm"]
+
+[ext_resource type="Script" path="res://scripts/Rooms/SetCollision.cs" id="1_qtwiy"]
 
 [node name="Fountain" type="StaticBody2D"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_qtwiy")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-80, 32, -80, -16, -32, -16, -32, 32, -48, 32, -48, 45, -64, 45, -64, 32)
