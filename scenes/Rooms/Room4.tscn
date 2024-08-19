@@ -52,6 +52,8 @@ room = NodePath("../..")
 
 [node name="Exit1" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("7_q0tqi")]
 position = Vector2(-80, -120.5)
+targetPosition = Vector2(90, 208)
+targetRoom = 5
 room = NodePath("../..")
 
 [node name="Exit2" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("7_q0tqi")]
