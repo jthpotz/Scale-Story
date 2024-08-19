@@ -22,7 +22,20 @@ public partial class PlayerSprite : AnimatedSprite2D {
     private AudioStreamPlayer2D music;
 
     private bool big = false;
+
+    public bool Big {
+        get {
+            return big;
+        }
+    }
+
     private bool smol = false;
+
+    public bool Smol {
+        get {
+            return smol;
+        }
+    }
 
     public override void _Ready () {
         Play("walk");
