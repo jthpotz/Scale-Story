@@ -1,8 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dkj2owjnb8t8l"]
+[gd_scene load_steps=17 format=3 uid="uid://dkj2owjnb8t8l"]
 
 [ext_resource type="Script" path="res://scripts/Rooms/Room.cs" id="1_5oo6t"]
-[ext_resource type="Texture2D" uid="uid://bwxbkn6rf0nsb" path="res://resources/ldtk-levels/test1/simplified/Level_10/Floor.png" id="2_ht63h"]
-[ext_resource type="Texture2D" uid="uid://d3s7qflmr4xee" path="res://resources/ldtk-levels/test1/simplified/Level_10/Walls.png" id="3_covj6"]
+[ext_resource type="Texture2D" uid="uid://bwlq854kgenfp" path="res://resources/ldtk-levels/test1/simplified/Level_10/Floor.png" id="2_ht63h"]
+[ext_resource type="Texture2D" uid="uid://rv1wkcupgikc" path="res://resources/ldtk-levels/test1/simplified/Level_10/Walls.png" id="3_covj6"]
 [ext_resource type="Script" path="res://scripts/Rooms/SetCollision.cs" id="4_gck6m"]
 [ext_resource type="PackedScene" uid="uid://bv1xxb8o2ld4p" path="res://scenes/Rooms/Objects/Colliders/Pedestal.tscn" id="5_mgfk6"]
 [ext_resource type="PackedScene" uid="uid://t6n882fh84on" path="res://scenes/Rooms/Objects/Colliders/DoorClimb.tscn" id="6_qvt8k"]
@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://bldj6weiimfgk" path="res://scenes/Rooms/Objects/Colliders/Door.tscn" id="7_q0tqi"]
 [ext_resource type="Texture2D" uid="uid://b33ne3x2ux5e5" path="res://resources/CustomTiles/BlueFlag.png" id="9_ocrjc"]
 [ext_resource type="Texture2D" uid="uid://cw32ko475xwuw" path="res://resources/CustomTiles/BlueDoor.png" id="9_vunox"]
+[ext_resource type="Texture2D" uid="uid://gg6btkp8gy15" path="res://resources/CustomTiles/SilverDoor.png" id="10_oeuey"]
 [ext_resource type="PackedScene" uid="uid://chdjwvarq2j1a" path="res://scenes/Rooms/Objects/WallCimb.tscn" id="10_wk48m"]
+[ext_resource type="Texture2D" uid="uid://o3vk8al1hib3" path="res://resources/CustomTiles/SilverFlag.png" id="12_cxevx"]
 [ext_resource type="PackedScene" uid="uid://d1spih5q3quec" path="res://scenes/Scale.tscn" id="12_i1k4r"]
 [ext_resource type="PackedScene" uid="uid://b4yl7dsh8cmd5" path="res://scenes/Rooms/Objects/Button.tscn" id="12_qck8g"]
 [ext_resource type="Script" path="res://scripts/Rooms/Unlockers/Room4Unlock.cs" id="15_74onn"]
@@ -70,6 +72,8 @@ room = NodePath("..")
 [node name="DoorBlock2" parent="." node_paths=PackedStringArray("room") instance=ExtResource("7_g7g5l")]
 visible = false
 position = Vector2(32, -120)
+texture = ExtResource("10_oeuey")
+scaleNeeded = 7
 room = NodePath("..")
 
 [node name="WallClimb" parent="." node_paths=PackedStringArray("room") instance=ExtResource("10_wk48m")]
@@ -83,6 +87,14 @@ texture = ExtResource("9_ocrjc")
 [node name="DoorFlag2" type="Sprite2D" parent="."]
 position = Vector2(-56.5, -120)
 texture = ExtResource("9_ocrjc")
+
+[node name="DoorFlag3" type="Sprite2D" parent="."]
+position = Vector2(8, -120)
+texture = ExtResource("12_cxevx")
+
+[node name="DoorFlag4" type="Sprite2D" parent="."]
+position = Vector2(56, -120)
+texture = ExtResource("12_cxevx")
 
 [node name="Button1" parent="." node_paths=PackedStringArray("room") instance=ExtResource("12_qck8g")]
 position = Vector2(55.5, 8)

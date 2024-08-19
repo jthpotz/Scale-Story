@@ -12,9 +12,9 @@ public partial class Room7Unlock : Node {
     [Export]
     private ButtonPress button2;
 
-    private bool button1Pressed = false;
+    private int button1Pressed = 0;
 
-    private bool button2Pressed = false;
+    private int button2Pressed = 0;
 
     public override void _Ready () {
         base._Ready();
@@ -27,18 +27,18 @@ public partial class Room7Unlock : Node {
     }
 
     public void PressButton (int num) {
-        if (num == 1) button1Pressed = true;
-        if (num == 2) button2Pressed = true;
+        if (num == 1) button1Pressed++;
+        if (num == 2) button2Pressed++;
 
-        if (button1Pressed && button2Pressed) pedestalBlock.ShowStairs(true);
+        if (button1Pressed > 0 && button2Pressed > 0) pedestalBlock.ShowStairs(true);
 
     }
 
     public void ReleaseButton (int num) {
-        if (num == 1) button1Pressed = false;
-        if (num == 2) button2Pressed = false;
+        if (num == 1) button1Pressed--;
+        if (num == 2) button2Pressed--;
 
-        if (!button1Pressed || !button2Pressed) pedestalBlock.HideStairs(true);
+        if (button1Pressed < 1 || button2Pressed < 1) pedestalBlock.HideStairs(true);
     }
 
 }

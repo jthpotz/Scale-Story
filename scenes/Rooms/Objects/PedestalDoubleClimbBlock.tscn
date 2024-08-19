@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bafcbqxijrqrd"]
+
+[ext_resource type="Script" path="res://scripts/Rooms/PedestalBlock.cs" id="1_i85op"]
+[ext_resource type="Texture2D" uid="uid://bm4l33cf4wxrr" path="res://resources/CustomTiles/DoublePillar.png" id="2_0twvy"]
+
+[node name="PedestalDoubleClimbBlock" type="Node2D" node_paths=PackedStringArray("fullBlock", "partialBlock1", "partialBlock2", "stairs")]
+script = ExtResource("1_i85op")
+fullBlock = NodePath("FullBlock")
+partialBlock1 = NodePath("PartialBlock1")
+partialBlock2 = NodePath("PartialBlock2")
+stairs = NodePath("Sprite2D")
+
+[node name="FullBlock" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FullBlock"]
+polygon = PackedVector2Array(16, -56, 80, -56, 80, -32, 16, -32)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(47, -40.5)
+texture = ExtResource("2_0twvy")
+
+[node name="PartialBlock1" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PartialBlock1"]
+polygon = PackedVector2Array(16, -56, 33, -56, 33, -32, 16, -32)
+
+[node name="PartialBlock2" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PartialBlock2"]
+polygon = PackedVector2Array(80, -56, 80, -32, 61, -32, 61, -56)

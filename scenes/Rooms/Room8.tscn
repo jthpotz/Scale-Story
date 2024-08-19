@@ -1,0 +1,100 @@
+[gd_scene load_steps=17 format=3 uid="uid://b3c8384jlte0i"]
+
+[ext_resource type="Script" path="res://scripts/Rooms/Room.cs" id="1_40376"]
+[ext_resource type="Texture2D" uid="uid://cj2uenjn3x2a4" path="res://resources/ldtk-levels/test1/simplified/Level_3/Floor.png" id="2_ygcpa"]
+[ext_resource type="Texture2D" uid="uid://cqyqhtd0glwdk" path="res://resources/ldtk-levels/test1/simplified/Level_3/Walls.png" id="3_7butb"]
+[ext_resource type="Script" path="res://scripts/Rooms/SetCollision.cs" id="4_15awb"]
+[ext_resource type="Texture2D" uid="uid://p2yqge2mra8g" path="res://resources/ldtk-levels/test1/simplified/Level_3/Sliding.png" id="4_noosm"]
+[ext_resource type="PackedScene" uid="uid://dqhlkbtesbrwm" path="res://scenes/Rooms/Objects/Colliders/Fountain.tscn" id="5_4bdgp"]
+[ext_resource type="PackedScene" uid="uid://crfd05yiq4f68" path="res://scenes/Rooms/Objects/Colliders/DoublePedestal.tscn" id="6_jqab0"]
+[ext_resource type="PackedScene" uid="uid://bldj6weiimfgk" path="res://scenes/Rooms/Objects/Colliders/Door.tscn" id="7_o3bek"]
+[ext_resource type="Script" path="res://scripts/Rooms/SetSlidingCollision.cs" id="8_si5rb"]
+[ext_resource type="PackedScene" uid="uid://btjiy5wjf3n6s" path="res://scenes/Rooms/Objects/LitFountain.tscn" id="9_bk66n"]
+[ext_resource type="Texture2D" uid="uid://ktmpyy5tyr82" path="res://resources/tiny-town/Tiles/tile_0066.png" id="10_nn0y0"]
+[ext_resource type="PackedScene" uid="uid://b4yl7dsh8cmd5" path="res://scenes/Rooms/Objects/Button.tscn" id="11_bkuvi"]
+[ext_resource type="PackedScene" uid="uid://bvyae1pcicthy" path="res://scenes/Rooms/Objects/Anvil.tscn" id="12_gd7do"]
+[ext_resource type="PackedScene" uid="uid://bafcbqxijrqrd" path="res://scenes/Rooms/Objects/PedestalDoubleClimbBlock.tscn" id="13_6g6l6"]
+[ext_resource type="PackedScene" uid="uid://d1spih5q3quec" path="res://scenes/Scale.tscn" id="14_msoeh"]
+[ext_resource type="Script" path="res://scripts/Rooms/Unlockers/Room8Unlock.cs" id="15_srg3o"]
+
+[node name="Room8" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_40376")
+roomNumber = 8
+
+[node name="Floor" type="Sprite2D" parent="."]
+texture = ExtResource("2_ygcpa")
+
+[node name="Walls" type="Sprite2D" parent="."]
+texture = ExtResource("3_7butb")
+
+[node name="WallCollision" type="StaticBody2D" parent="Walls" node_paths=PackedStringArray("room")]
+script = ExtResource("4_15awb")
+room = NodePath("../..")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/WallCollision"]
+build_mode = 1
+polygon = PackedVector2Array(-112, -112, 112, -112, 112, 112, 109, 112, 109, 126, 83, 126, 83, 112, -112, 112)
+
+[node name="Fountain" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("5_4bdgp")]
+position = Vector2(-16.5, 48)
+room = NodePath("../..")
+
+[node name="DoublePedestal" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("6_jqab0")]
+room = NodePath("../..")
+
+[node name="Door" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("7_o3bek")]
+position = Vector2(96, 122.5)
+targetPosition = Vector2(-135, -204)
+targetRoom = 8
+room = NodePath("../..")
+
+[node name="Sliding" type="Sprite2D" parent="."]
+texture = ExtResource("4_noosm")
+
+[node name="SlidingCollision" type="StaticBody2D" parent="Sliding" node_paths=PackedStringArray("room")]
+script = ExtResource("8_si5rb")
+room = NodePath("../..")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sliding/SlidingCollision"]
+build_mode = 1
+polygon = PackedVector2Array(80, 0, 80, 32, 64, 32, 64, 48, 48, 48, 48, 80, 16, 80, 16, 64, -48, 64, -48, 16, -80, 16, -80, 0, -96, 0, -96, -32.5, -64, -32.5, -64, -80, 0, -80, 0, -16, -16, -16, -16, 32, 0, 32, 0, 15, 16, 15, 16, 0)
+
+[node name="LitFountain1" parent="." node_paths=PackedStringArray("room") instance=ExtResource("9_bk66n")]
+position = Vector2(-72, 79.5)
+room = NodePath("..")
+
+[node name="Button1Img" type="Sprite2D" parent="."]
+position = Vector2(-88, -8.5)
+texture = ExtResource("10_nn0y0")
+
+[node name="Button1" parent="." node_paths=PackedStringArray("room") instance=ExtResource("11_bkuvi")]
+position = Vector2(-88, -8.5)
+room = NodePath("..")
+
+[node name="Anvil" parent="." node_paths=PackedStringArray("room") instance=ExtResource("12_gd7do")]
+position = Vector2(71.5, 8)
+room = NodePath("..")
+
+[node name="PedestalDoubleClimbBlock" parent="." node_paths=PackedStringArray("room") instance=ExtResource("13_6g6l6")]
+room = NodePath("..")
+
+[node name="Scale" parent="." instance=ExtResource("14_msoeh")]
+position = Vector2(47, -72)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D" parent="Scale" index="0"]
+collision_layer = 128
+collision_mask = 128
+
+[node name="ScaleVisual" parent="Scale" index="2"]
+color = 7
+bounceFactor = 6.0
+
+[node name="Unlock" type="Node" parent="." node_paths=PackedStringArray("pedestalBlock", "fountain1", "button1")]
+script = ExtResource("15_srg3o")
+pedestalBlock = NodePath("../PedestalDoubleClimbBlock")
+fountain1 = NodePath("../LitFountain1")
+button1 = NodePath("../Button1")
+
+[editable path="Scale"]

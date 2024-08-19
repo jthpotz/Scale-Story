@@ -8,6 +8,8 @@ public partial class Room5Unlock : Node {
     [Export]
     private ButtonPress button1;
 
+    private int buttonPressed = 0;
+
     public override void _Ready () {
         base._Ready();
 
@@ -17,10 +19,17 @@ public partial class Room5Unlock : Node {
 
 
     public void UnlockDoor1 () {
-        doorBlock1.DisableDoorBlock(true);
+        buttonPressed++;
+        Check();
     }
 
     public void LockDoor1 () {
-        doorBlock1.EnableDoorBlock(true);
+        buttonPressed--;
+        Check();
+    }
+
+    private void Check () {
+        if (buttonPressed > 0) doorBlock1.DisableDoorBlock(true);
+        else doorBlock1.EnableDoorBlock(true);
     }
 }
