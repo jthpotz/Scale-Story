@@ -20,8 +20,9 @@ public partial class PlayerMovement : Node {
 
     private bool roar = false;
 
-    public void SetDirection (Vector2 direction) {
-        this.direction += direction;
+    public void SetDirection (Vector2 direction, bool release) {
+        if (!release || this.direction.X != 0 || this.direction.Y != 0) this.direction += direction;
+
         if (this.direction.X * facing < 0) {
             playerVisual.Parent.Scale = new Vector2(playerVisual.Parent.Scale.X * -1, playerVisual.Parent.Scale.Y);
             facing *= -1;
