@@ -1,0 +1,132 @@
+[gd_scene load_steps=14 format=3 uid="uid://cuinvdledw6ip"]
+
+[ext_resource type="Script" path="res://scripts/Rooms/Room.cs" id="1_d1el6"]
+[ext_resource type="Texture2D" uid="uid://bl3hpoe2ok1ay" path="res://resources/ldtk-levels/test1/simplified/Level_9/Floor.png" id="2_i7l73"]
+[ext_resource type="Texture2D" uid="uid://coy4l8riaq41t" path="res://resources/ldtk-levels/test1/simplified/Level_9/Walls.png" id="3_ehqbu"]
+[ext_resource type="Script" path="res://scripts/Rooms/SetCollision.cs" id="4_etawh"]
+[ext_resource type="PackedScene" uid="uid://dqhlkbtesbrwm" path="res://scenes/Rooms/Objects/Colliders/Fountain.tscn" id="5_1iebu"]
+[ext_resource type="PackedScene" uid="uid://bv1xxb8o2ld4p" path="res://scenes/Rooms/Objects/Colliders/Pedestal.tscn" id="6_0m3ns"]
+[ext_resource type="Texture2D" uid="uid://cgfrhcage0eib" path="res://resources/CustomTiles/Stairs.png" id="7_4x456"]
+[ext_resource type="PackedScene" uid="uid://bldj6weiimfgk" path="res://scenes/Rooms/Objects/Colliders/Door.tscn" id="7_ehos5"]
+[ext_resource type="PackedScene" uid="uid://btjiy5wjf3n6s" path="res://scenes/Rooms/Objects/LitFountain.tscn" id="7_hkijd"]
+[ext_resource type="PackedScene" uid="uid://d1spih5q3quec" path="res://scenes/Scale.tscn" id="7_oh52j"]
+[ext_resource type="Script" path="res://scripts/Rooms/PedestalBlock.cs" id="8_v8kps"]
+[ext_resource type="Script" path="res://scripts/Rooms/Unlockers/Room6Unlock.cs" id="11_5mrc8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xqoy"]
+size = Vector2(6, 16)
+
+[node name="Room6" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_d1el6")
+roomNumber = 6
+
+[node name="Floor" type="Sprite2D" parent="."]
+texture = ExtResource("2_i7l73")
+
+[node name="Walls" type="Sprite2D" parent="."]
+texture = ExtResource("3_ehqbu")
+
+[node name="WallCollision" type="StaticBody2D" parent="Walls" node_paths=PackedStringArray("room")]
+script = ExtResource("4_etawh")
+room = NodePath("../..")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/WallCollision"]
+build_mode = 1
+polygon = PackedVector2Array(-112, -112, 112, -112, 112, 112, 93, 112, 93, 126, 67, 126, 67, 112, -112, 112)
+
+[node name="Fountain" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("5_1iebu")]
+position = Vector2(-16.5, -64)
+room = NodePath("../..")
+
+[node name="Fountain2" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("5_1iebu")]
+position = Vector2(80, -80.5)
+room = NodePath("../..")
+
+[node name="Fountain3" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("5_1iebu")]
+position = Vector2(127.5, 0)
+room = NodePath("../..")
+
+[node name="Pedestal" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("6_0m3ns")]
+position = Vector2(-261, -86.5)
+room = NodePath("../..")
+
+[node name="Entrance" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("7_ehos5")]
+position = Vector2(80, 123)
+targetPosition = Vector2(-70, -204)
+targetRoom = 5
+room = NodePath("../..")
+
+[node name="LitFountain1" parent="." node_paths=PackedStringArray("room") instance=ExtResource("7_hkijd")]
+position = Vector2(-72, -32)
+room = NodePath("..")
+note = 3
+
+[node name="LitFountain2" parent="." node_paths=PackedStringArray("room") instance=ExtResource("7_hkijd")]
+position = Vector2(24, -48.5)
+room = NodePath("..")
+note = 1
+
+[node name="LitFountain3" parent="." node_paths=PackedStringArray("room") instance=ExtResource("7_hkijd")]
+position = Vector2(72, 32)
+room = NodePath("..")
+note = 5
+
+[node name="PedestalBlock" type="Node2D" parent="." node_paths=PackedStringArray("room", "fullBlock", "partialBlock1", "partialBlock2", "stairs")]
+position = Vector2(-16.5, 0)
+script = ExtResource("8_v8kps")
+room = NodePath("..")
+fullBlock = NodePath("FullBlock")
+partialBlock1 = NodePath("PartialBlock1")
+partialBlock2 = NodePath("PartialBlock2")
+stairs = NodePath("Stairs")
+
+[node name="Stairs" type="Sprite2D" parent="PedestalBlock"]
+position = Vector2(-8, 56)
+texture = ExtResource("7_4x456")
+
+[node name="FullBlock" type="StaticBody2D" parent="PedestalBlock"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PedestalBlock/FullBlock"]
+polygon = PackedVector2Array(-32, 32, 16, 32, 16, 64, -32, 64)
+
+[node name="PartialBlock1" type="StaticBody2D" parent="PedestalBlock"]
+position = Vector2(-8, 48)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PedestalBlock/PartialBlock1"]
+position = Vector2(-21, -8.5)
+shape = SubResource("RectangleShape2D_7xqoy")
+
+[node name="PartialBlock2" type="StaticBody2D" parent="PedestalBlock"]
+position = Vector2(-8, 48)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PedestalBlock/PartialBlock2"]
+position = Vector2(20.5, -8)
+shape = SubResource("RectangleShape2D_7xqoy")
+
+[node name="Scale" parent="." instance=ExtResource("7_oh52j")]
+position = Vector2(-24, 20.5)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D" parent="Scale" index="0"]
+collision_layer = 32
+collision_mask = 32
+
+[node name="ScaleVisual" parent="Scale" index="2"]
+color = 6
+bounceFactor = 6.0
+
+[node name="Unlock" type="Node" parent="." node_paths=PackedStringArray("fountain1", "fountain2", "fountain3", "pedestalBlock")]
+script = ExtResource("11_5mrc8")
+fountain1 = NodePath("../LitFountain1")
+fountain2 = NodePath("../LitFountain2")
+fountain3 = NodePath("../LitFountain3")
+pedestalBlock = NodePath("../PedestalBlock")
+
+[editable path="Scale"]

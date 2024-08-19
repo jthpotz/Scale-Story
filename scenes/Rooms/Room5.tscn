@@ -1,10 +1,10 @@
 [gd_scene load_steps=20 format=3 uid="uid://ch0ujp63y6lvf"]
 
 [ext_resource type="Script" path="res://scripts/Rooms/Room.cs" id="1_xmydb"]
-[ext_resource type="Texture2D" uid="uid://80cxvc4yyhs2" path="res://resources/ldtk-levels/test1/simplified/Level_4/Floor.png" id="2_rg0pn"]
-[ext_resource type="Texture2D" uid="uid://dgb4jbmlbnulh" path="res://resources/ldtk-levels/test1/simplified/Level_4/Walls.png" id="3_2nxbu"]
+[ext_resource type="Texture2D" uid="uid://ced6xhb224sng" path="res://resources/ldtk-levels/test1/simplified/Level_4/Floor.png" id="2_rg0pn"]
+[ext_resource type="Texture2D" uid="uid://xk2cgysw1luq" path="res://resources/ldtk-levels/test1/simplified/Level_4/Walls.png" id="3_2nxbu"]
 [ext_resource type="Script" path="res://scripts/Rooms/SetCollision.cs" id="4_8ys0h"]
-[ext_resource type="Texture2D" uid="uid://cowpgykjriq2q" path="res://resources/ldtk-levels/test1/simplified/Level_4/Sliding.png" id="4_ephah"]
+[ext_resource type="Texture2D" uid="uid://ve1l5xw71sxe" path="res://resources/ldtk-levels/test1/simplified/Level_4/Sliding.png" id="4_ephah"]
 [ext_resource type="PackedScene" uid="uid://bv1xxb8o2ld4p" path="res://scenes/Rooms/Objects/Colliders/Pedestal.tscn" id="4_q8ioh"]
 [ext_resource type="PackedScene" uid="uid://bldj6weiimfgk" path="res://scenes/Rooms/Objects/Colliders/Door.tscn" id="5_ja5f1"]
 [ext_resource type="Texture2D" uid="uid://ktmpyy5tyr82" path="res://resources/tiny-town/Tiles/tile_0066.png" id="7_gbdcg"]
@@ -57,6 +57,8 @@ room = NodePath("../..")
 
 [node name="Exit1" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("5_ja5f1")]
 position = Vector2(-32.5, -120.5)
+targetPosition = Vector2(155, 208)
+targetRoom = 6
 room = NodePath("../..")
 
 [node name="Exit2" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("5_ja5f1")]
