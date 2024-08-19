@@ -27,6 +27,9 @@ public partial class Door : Area2D {
     public override void _Ready () {
         base._Ready();
         BodyEntered += ChangeRoom;
+
+        SetCollisionLayerValue(room.RoomNumber, true);
+        SetCollisionMaskValue(room.RoomNumber, true);
     }
 
     public void ChangeRoom (Node2D other) {
