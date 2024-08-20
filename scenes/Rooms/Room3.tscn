@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://yqs7d34hlq61"]
 
 [ext_resource type="Script" path="res://scripts/Rooms/Room.cs" id="1_s22r7"]
-[ext_resource type="Texture2D" uid="uid://yhe5m0o5nki7" path="res://resources/ldtk-levels/test1/simplified/Level_1/Floor.png" id="1_utg4d"]
-[ext_resource type="Texture2D" uid="uid://cyp8vm5al2ups" path="res://resources/ldtk-levels/test1/simplified/Level_1/Walls.png" id="2_en7if"]
+[ext_resource type="Texture2D" uid="uid://c7214ky306mxx" path="res://resources/ldtk-levels/test1/simplified/Level_1/Floor.png" id="1_utg4d"]
+[ext_resource type="Texture2D" uid="uid://be6arrjqel257" path="res://resources/ldtk-levels/test1/simplified/Level_1/Walls.png" id="2_en7if"]
 [ext_resource type="PackedScene" uid="uid://dqhlkbtesbrwm" path="res://scenes/Rooms/Objects/Colliders/Fountain.tscn" id="3_6cvu2"]
 [ext_resource type="PackedScene" uid="uid://bldj6weiimfgk" path="res://scenes/Rooms/Objects/Colliders/Door.tscn" id="4_28xla"]
 [ext_resource type="PackedScene" uid="uid://btjiy5wjf3n6s" path="res://scenes/Rooms/Objects/LitFountain.tscn" id="4_d5llo"]
@@ -31,7 +31,7 @@ room = NodePath("../..")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/WallCollision"]
 build_mode = 1
-polygon = PackedVector2Array(-112, -112, -77, -112, -77, -125, -51, -125, -51, -112, 51, -112, 51, -125, 77, -125, 77, -112, 112, -112, 112, 112, 13, 112, 13, 126, -13, 126, -13, 112, -112, 112)
+polygon = PackedVector2Array(-112, -112, -77, -112, -77, -125, -51, -125, -51, -112, 67, -112, 67, -125, 93, -125, 93, -112, 112, -112, 112, 112, 13, 112, 13, 126, -13, 126, -13, 112, -112, 112)
 
 [node name="Fountain" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("3_6cvu2")]
 position = Vector2(-0.5, -16.5)
@@ -58,8 +58,8 @@ targetRoom = 8
 room = NodePath("../..")
 
 [node name="Exit2" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("4_28xla")]
-position = Vector2(63.5, -120)
-targetPosition = Vector2(-170, 208)
+position = Vector2(79.5, -120.5)
+targetPosition = Vector2(-135, 208)
 targetRoom = 4
 room = NodePath("../..")
 
@@ -81,13 +81,12 @@ position = Vector2(72, -32.5)
 room = NodePath("..")
 
 [node name="DoorBlock1" parent="." node_paths=PackedStringArray("room") instance=ExtResource("5_4xcgk")]
-visible = false
 position = Vector2(-64, -120)
 room = NodePath("..")
 
 [node name="DoorBlock2" parent="." node_paths=PackedStringArray("room") instance=ExtResource("5_4xcgk")]
 visible = false
-position = Vector2(64, -120.5)
+position = Vector2(80, -120)
 useScaleColor = false
 room = NodePath("..")
 

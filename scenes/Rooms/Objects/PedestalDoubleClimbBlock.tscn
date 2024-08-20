@@ -11,6 +11,8 @@ partialBlock2 = NodePath("PartialBlock2")
 stairs = NodePath("Sprite2D")
 
 [node name="FullBlock" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FullBlock"]
 polygon = PackedVector2Array(16, -56, 80, -56, 80, -32, 16, -32)
@@ -20,11 +22,15 @@ position = Vector2(47, -40.5)
 texture = ExtResource("2_0twvy")
 
 [node name="PartialBlock1" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PartialBlock1"]
 polygon = PackedVector2Array(16, -56, 33, -56, 33, -32, 16, -32)
 
 [node name="PartialBlock2" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PartialBlock2"]
 polygon = PackedVector2Array(80, -56, 80, -32, 61, -32, 61, -56)
