@@ -1,12 +1,17 @@
 {
 	"identifier": "Level_0",
 	"uniqueIdentifer": "e9b7c720-4ce0-11ef-9c1c-e73681773489",
-	"x": -1136,
-	"y": 512,
+	"x": 688,
+	"y": -1280,
 	"width": 256,
 	"height": 256,
 	"bgColor": "#696A79",
-	"neighbourLevels": [],
+	"neighbourLevels": [
+		{
+			"levelIid": "c7702e20-4ce0-11ef-9c1c-69b8a4867614",
+			"dir": "s"
+		}
+	],
 	"customFields" : {},
 	"layers": [
 		"Floor.png",

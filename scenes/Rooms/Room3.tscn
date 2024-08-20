@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://yqs7d34hlq61"]
 
 [ext_resource type="Script" path="res://scripts/Rooms/Room.cs" id="1_s22r7"]
-[ext_resource type="Texture2D" uid="uid://c7214ky306mxx" path="res://resources/ldtk-levels/test1/simplified/Level_1/Floor.png" id="1_utg4d"]
-[ext_resource type="Texture2D" uid="uid://be6arrjqel257" path="res://resources/ldtk-levels/test1/simplified/Level_1/Walls.png" id="2_en7if"]
+[ext_resource type="Texture2D" uid="uid://d2hu8wi4sodc3" path="res://resources/ldtk-levels/test1/simplified/Level_1/Floor.png" id="1_utg4d"]
+[ext_resource type="Texture2D" uid="uid://dokm53cluv41j" path="res://resources/ldtk-levels/test1/simplified/Level_1/Walls.png" id="2_en7if"]
 [ext_resource type="PackedScene" uid="uid://dqhlkbtesbrwm" path="res://scenes/Rooms/Objects/Colliders/Fountain.tscn" id="3_6cvu2"]
 [ext_resource type="PackedScene" uid="uid://bldj6weiimfgk" path="res://scenes/Rooms/Objects/Colliders/Door.tscn" id="4_28xla"]
 [ext_resource type="PackedScene" uid="uid://btjiy5wjf3n6s" path="res://scenes/Rooms/Objects/LitFountain.tscn" id="4_d5llo"]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=17 format=3 uid="uid://ch0ujp63y6lvf"]
 
 [ext_resource type="Script" path="res://scripts/Rooms/Room.cs" id="1_xmydb"]
-[ext_resource type="Texture2D" uid="uid://t45fqwrtjpnr" path="res://resources/ldtk-levels/test1/simplified/Level_4/Floor.png" id="2_rg0pn"]
-[ext_resource type="Texture2D" uid="uid://k8rmppuh6y5t" path="res://resources/ldtk-levels/test1/simplified/Level_4/Walls.png" id="3_2nxbu"]
+[ext_resource type="Texture2D" uid="uid://vb6tba1m06tl" path="res://resources/ldtk-levels/test1/simplified/Level_4/Floor.png" id="2_rg0pn"]
+[ext_resource type="Texture2D" uid="uid://v6j7qpijhtwc" path="res://resources/ldtk-levels/test1/simplified/Level_4/Walls.png" id="3_2nxbu"]
 [ext_resource type="Script" path="res://scripts/Rooms/SetCollision.cs" id="4_8ys0h"]
-[ext_resource type="Texture2D" uid="uid://43og5cjfsmak" path="res://resources/ldtk-levels/test1/simplified/Level_4/Sliding.png" id="4_ephah"]
+[ext_resource type="Texture2D" uid="uid://cntnk2jcoqvid" path="res://resources/ldtk-levels/test1/simplified/Level_4/Sliding.png" id="4_ephah"]
 [ext_resource type="PackedScene" uid="uid://bv1xxb8o2ld4p" path="res://scenes/Rooms/Objects/Colliders/Pedestal.tscn" id="4_q8ioh"]
 [ext_resource type="PackedScene" uid="uid://bldj6weiimfgk" path="res://scenes/Rooms/Objects/Colliders/Door.tscn" id="5_ja5f1"]
 [ext_resource type="Texture2D" uid="uid://ktmpyy5tyr82" path="res://resources/tiny-town/Tiles/tile_0066.png" id="7_gbdcg"]

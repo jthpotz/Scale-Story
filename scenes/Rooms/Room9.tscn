@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://d21xnhud4eia1"]
 
 [ext_resource type="Script" path="res://scripts/Rooms/Room.cs" id="1_e3nkm"]
-[ext_resource type="Texture2D" uid="uid://i8lvwngin783" path="res://resources/ldtk-levels/test1/simplified/Level_7/Floor.png" id="2_53776"]
-[ext_resource type="Texture2D" uid="uid://b8ndrgka8sypo" path="res://resources/ldtk-levels/test1/simplified/Level_7/Walls.png" id="2_bsox8"]
+[ext_resource type="Texture2D" uid="uid://bohu48vlfxsgm" path="res://resources/ldtk-levels/test1/simplified/Level_7/Floor.png" id="2_53776"]
+[ext_resource type="Texture2D" uid="uid://ylbsk3qwoivv" path="res://resources/ldtk-levels/test1/simplified/Level_7/Walls.png" id="2_bsox8"]
 [ext_resource type="Script" path="res://scripts/Rooms/SetCollision.cs" id="4_gmd0a"]
 [ext_resource type="PackedScene" uid="uid://dqhlkbtesbrwm" path="res://scenes/Rooms/Objects/Colliders/Fountain.tscn" id="5_2hbns"]
 [ext_resource type="PackedScene" uid="uid://crfd05yiq4f68" path="res://scenes/Rooms/Objects/Colliders/DoublePedestal.tscn" id="6_a0qp1"]
@@ -64,6 +64,7 @@ room = NodePath("../..")
 
 [node name="Exit1" parent="Walls" node_paths=PackedStringArray("room") instance=ExtResource("7_npqxj")]
 position = Vector2(72, -122)
+targetPosition = Vector2(-437, 472)
 targetRoom = 10
 room = NodePath("../..")
 
@@ -76,6 +77,7 @@ position = Vector2(-80.5, -0.5)
 room = NodePath("..")
 
 [node name="DoorBlock1" parent="." node_paths=PackedStringArray("room") instance=ExtResource("8_t20a7")]
+process_mode = 4
 visible = false
 position = Vector2(72, -120.5)
 texture = ExtResource("9_qmgcm")

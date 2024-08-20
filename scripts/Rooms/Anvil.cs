@@ -18,14 +18,28 @@ public partial class Anvil : CharacterBody2D {
     [Export]
     private Sprite2D sprite;
 
+    [Export]
+    private bool showOnStart = true;
+
     private float speed = 200;
 
     private Vector2 direction = new Vector2();
 
     private bool stop = false;
 
+    private bool shown = false;
+
     public override void _Ready () {
         base._Ready();
+
+        sprite.Hide();
+        if (showOnStart) ShowAnvil();
+
+    }
+
+    public void ShowAnvil () {
+        if (shown) return;
+        shown = true;
 
         SetCollisionLayerValue(room.RoomNumber, true);
         SetCollisionMaskValue(room.RoomNumber, true);
@@ -41,7 +55,7 @@ public partial class Anvil : CharacterBody2D {
 
         trigger.SetCollisionLayerValue(room.RoomNumber, true);
         trigger.SetCollisionMaskValue(room.RoomNumber, true);
-
+        sprite.Show();
     }
 
     public override void _PhysicsProcess (double delta) {

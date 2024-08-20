@@ -10,6 +10,9 @@ public partial class RoomSwitcher : Node {
     [Export]
     private PlayerCollision player;
 
+    [Export]
+    private EvilWizardEnd evilWizardEnd;
+
     public override void _Ready () {
         base._Ready();
         foreach (Room room in rooms) {
@@ -25,6 +28,8 @@ public partial class RoomSwitcher : Node {
 
         AudioQueue music = GetNode<AudioQueue>("/root/GameWorld/SFXPlayer");
         music.QueueSound("res://resources/music/enter-room.mp3", AudioQueue.AudioType.mp3);
+
+        if (toRoom == 11) evilWizardEnd.ShowEnd();
     }
 
 }

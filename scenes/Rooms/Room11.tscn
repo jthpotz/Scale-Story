@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://do6y6rhoxnj4"]
+
+[ext_resource type="Script" path="res://scripts/Rooms/Room.cs" id="1_pk824"]
+[ext_resource type="Texture2D" uid="uid://dnfi3nepwvgnm" path="res://resources/ldtk-levels/test1/simplified/Level_0/Floor.png" id="2_c5af4"]
+[ext_resource type="Texture2D" uid="uid://d3mkcqpmp7u6c" path="res://resources/ldtk-levels/test1/simplified/Level_0/Walls.png" id="3_tahmi"]
+
+[node name="Room11" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_pk824")
+roomNumber = 11
+
+[node name="Floor" type="Sprite2D" parent="."]
+texture = ExtResource("2_c5af4")
+
+[node name="Walls" type="Sprite2D" parent="."]
+texture = ExtResource("3_tahmi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)

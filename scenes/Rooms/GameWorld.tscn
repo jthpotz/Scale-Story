@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c4a4xbuev7mrc"]
+[gd_scene load_steps=23 format=3 uid="uid://c4a4xbuev7mrc"]
 
 [ext_resource type="PackedScene" uid="uid://dl3ceimd1tgtu" path="res://scenes/Rooms/Room1.tscn" id="1_eegrt"]
 [ext_resource type="PackedScene" uid="uid://tju1fd2ldxx" path="res://scenes/Rooms/Room2.tscn" id="2_d5304"]
@@ -16,7 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://b3c8384jlte0i" path="res://scenes/Rooms/Room8.tscn" id="8_xf7nf"]
 [ext_resource type="PackedScene" uid="uid://d21xnhud4eia1" path="res://scenes/Rooms/Room9.tscn" id="9_erten"]
 [ext_resource type="Script" path="res://scripts/Audio/AudioQueue.cs" id="9_qllnr"]
+[ext_resource type="PackedScene" uid="uid://crdebov1dnvv3" path="res://scenes/Rooms/Room10.tscn" id="10_pfh1e"]
 [ext_resource type="AudioStream" uid="uid://cp51ih1n4b3sv" path="res://resources/music/soundtrack.mp3" id="10_rycb5"]
+[ext_resource type="PackedScene" uid="uid://do6y6rhoxnj4" path="res://scenes/Rooms/Room11.tscn" id="11_btaks"]
+[ext_resource type="PackedScene" uid="uid://3hsk6lsucsep" path="res://scenes/UI/EvilWizardOpen.tscn" id="16_cb2in"]
+[ext_resource type="PackedScene" uid="uid://d2aatlhvvjhmf" path="res://scenes/UI/EvilWizardEnd.tscn" id="18_npe4w"]
+[ext_resource type="Texture2D" uid="uid://crxir7e5dixj5" path="res://resources/tiny-town/Tiles/tile_0111.png" id="19_fc6pq"]
 
 [node name="GameWorld" type="Node2D"]
 
@@ -46,6 +51,12 @@ visible = false
 [node name="Room9" parent="." instance=ExtResource("9_erten")]
 visible = false
 
+[node name="Room10" parent="." instance=ExtResource("10_pfh1e")]
+visible = false
+
+[node name="Room11" parent="." instance=ExtResource("11_btaks")]
+visible = false
+
 [node name="Player" parent="." instance=ExtResource("3_bkv3o")]
 position = Vector2(-10, 160)
 scale = Vector2(1.25, 1.25)
@@ -54,10 +65,11 @@ scale = Vector2(1.25, 1.25)
 script = ExtResource("4_p8oe5")
 playerMovement = NodePath("../Player/PlayerMovement")
 
-[node name="RoomSwitcher" type="Node" parent="." node_paths=PackedStringArray("rooms", "player")]
+[node name="RoomSwitcher" type="Node" parent="." node_paths=PackedStringArray("rooms", "player", "evilWizardEnd")]
 script = ExtResource("4_6i42y")
-rooms = [NodePath("../Room1"), NodePath("../Room2"), NodePath("../Room3"), NodePath("../Room4"), NodePath("../Room5"), NodePath("../Room6"), NodePath("../Room7"), NodePath("../Room8"), NodePath("../Room9")]
+rooms = [NodePath("../Room1"), NodePath("../Room2"), NodePath("../Room3"), NodePath("../Room4"), NodePath("../Room5"), NodePath("../Room6"), NodePath("../Room7"), NodePath("../Room8"), NodePath("../Room9"), NodePath("../Room10"), NodePath("../Room11")]
 player = NodePath("../Player")
+evilWizardEnd = NodePath("../EvilWizardCanvasLayer/EvilWizardEnd")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -81,6 +93,15 @@ playerMovement = NodePath("../../Player/PlayerMovement")
 [node name="ScaleDefinition" parent="ScaleCanvasLayer" instance=ExtResource("8_j1tbi")]
 visible = false
 
+[node name="EvilWizardCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="EvilWizardOpen" parent="EvilWizardCanvasLayer" node_paths=PackedStringArray("evilWizard", "playerMovement") instance=ExtResource("16_cb2in")]
+evilWizard = NodePath("../../EvilWizard")
+playerMovement = NodePath("../../Player/PlayerMovement")
+
+[node name="EvilWizardEnd" parent="EvilWizardCanvasLayer" node_paths=PackedStringArray("playerMovement") instance=ExtResource("18_npe4w")]
+playerMovement = NodePath("../../Player/PlayerMovement")
+
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 script = ExtResource("9_qllnr")
@@ -91,3 +112,8 @@ stream = ExtResource("10_rycb5")
 volume_db = -15.0
 autoplay = true
 parameters/looping = true
+
+[node name="EvilWizard" type="Sprite2D" parent="."]
+position = Vector2(107, -85)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("19_fc6pq")
